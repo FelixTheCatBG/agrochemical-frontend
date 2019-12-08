@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
 import { history, Role } from './utils';
 import { authenticationService } from './services';
@@ -28,7 +28,7 @@ class App extends React.Component {
 
   logout() {
     authenticationService.logout();
-    history.push('/login');
+    history.push('/');
   }
 
   render() {
@@ -49,9 +49,11 @@ class App extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-6 offset-md-3">
-                  <PrivateRoute path="/admin" roles={[Role.Admin]} component={AdminPage} />
-                  <Route path="/login" component={LoginPage} />
-                  <Route exact path="/" component={HomePage} />
+                  <Switch>
+                    <PrivateRoute path="/admin" roles={[Role.Admin]} component={AdminPage} />
+                    <Route path="/login" component={LoginPage} />
+                    <Route exact path="/" component={HomePage} />
+                  </Switch>
                 </div>
               </div>
             </div>
