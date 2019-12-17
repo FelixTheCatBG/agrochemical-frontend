@@ -1,17 +1,18 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 // function Copyright() {
 //     return (
@@ -26,37 +27,37 @@ import Container from '@material-ui/core/Container';
 //     );
 // }
 
-import { authenticationService } from '../../services';
+import { authenticationService } from "../../services";
 
 const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
     },
     avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.secondary.main
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(1),
+        width: "100%", // Fix IE 11 issue.
+        marginTop: theme.spacing(1)
     },
     submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
+        margin: theme.spacing(3, 0, 2)
+    }
 }));
 
 class LoginPage extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
 
         this.state = {
-            username: '',
-            password: ''
+            username: "",
+            password: ""
         };
-    };
+    }
 
     handleKeyPress = e => {
         if (e.key === "Enter") {
@@ -64,45 +65,45 @@ class LoginPage extends React.Component {
         }
     };
 
-    signIn = (e) => {
+    signIn = e => {
         e.preventDefault();
 
         const username = this.state.username;
         const password = this.state.password;
 
-        authenticationService.login(username, password)
-            .then(
-                user => {
-                    console.log(user)
-                    const { from } = this.props.location.state || { from: { pathname: "/" } };
-                    this.props.history.push(from);
-                },
-                error => {
-                    console.log(error)
-                }
-            );
-    }
+        authenticationService.login(username, password).then(user => {
+            // console.log(user);s
+            const { from } = this.props.location.state || {
+                from: { pathname: "/" }
+            };
 
-    handleInputChange = (e) => {
+            this.props.history.push(from);
+        },
+        error => {
+            //console.log(error);
+        });
+    };
+
+    handleInputChange = e => {
         const name = e.target.name;
         const value = e.target.value;
 
         this.setState({
             [name]: value
-        }, console.log);
-    }
+        });
+    };
 
-    render() {
+    render () {
         return (
-            <Container component="main" maxWidth="xs" >
+            <Container component="main" maxWidth="xs">
                 <CssBaseline />
-                <div >
-                    <Avatar >
+                <div>
+                    <Avatar>
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Sign in
-        </Typography>
+                    </Typography>
                     <form cnoValidate>
                         <TextField
                             variant="outlined"
@@ -140,12 +141,12 @@ class LoginPage extends React.Component {
                             onClick={this.signIn}
                         >
                             Sign In
-          </Button>
+                        </Button>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
                                     Forgot password?
-              </Link>
+                                </Link>
                             </Grid>
                             <Grid item>
                                 <Link href="#" variant="body2">
@@ -155,12 +156,10 @@ class LoginPage extends React.Component {
                         </Grid>
                     </form>
                 </div>
-                <Box mt={8}>
-                    {/* <Copyright /> */}
-                </Box>
+                <Box mt={8}>{/* <Copyright /> */}</Box>
             </Container>
         );
     }
 }
 
-export default LoginPage;
+export default withStyles(useStyles)(LoginPage);

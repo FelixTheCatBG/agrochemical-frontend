@@ -1,0 +1,197 @@
+{
+  "extends": [
+    "eslint-config-react-app",
+    "eslint:recommended"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-unused-vars": "error",
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "error"
+        ]
+      }
+    ],
+    "no-irregular-whitespace": "error",
+    "object-shorthand": "error",
+    "prefer-arrow-callback": "error",
+    "prefer-template": "error",
+    "no-param-reassign": "error",
+    "no-useless-escape": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "import/no-extraneous-dependencies": "error",
+    "curly": [
+      "error",
+      "all"
+    ],
+    "comma-dangle": "error",
+    "strict": "error",
+    "no-else-return": "error",
+    "vars-on-top": "error",
+    "guard-for-in": "error",
+    "react/no-array-index-key": "error",
+    "react/jsx-boolean-value": "error",
+    "for-direction": "error",
+    "no-cond-assign": "error",
+    "no-constant-condition": "error",
+    "no-dupe-args": "error",
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-empty": "error",
+    "array-callback-return": "error",
+    "block-scoped-var": "error",
+    "consistent-return": "error",
+    "default-case": "error",
+    "dot-location": "error",
+    "dot-notation": "error",
+    "eqeqeq": "error",
+    "no-alert": "error",
+    "no-empty-function": "error",
+    "no-empty-pattern": "error",
+    "no-eq-null": "error",
+    "no-extend-native": "error",
+    "no-extra-bind": "error",
+    "no-floating-decimal": "error",
+    "no-global-assign": "error",
+    "no-implicit-coercion": "error",
+    "no-implicit-globals": "error",
+    "no-lone-blocks": "error",
+    "no-loop-func": "error",
+    "no-multi-spaces": "error",
+    "no-multi-str": "error",
+    "no-new": "error",
+    "no-new-func": "error",
+    "no-new-wrappers": "error",
+    "no-redeclare": "error",
+    "no-return-assign": "error",
+    "no-script-url": "error",
+    "no-self-assign": "error",
+    "no-self-compare": "error",
+    "no-throw-literal": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-unused-expressions": "error",
+    "no-useless-concat": "error",
+    "no-useless-return": "error",
+    "array-bracket-spacing": [
+      "error",
+      "always",
+      {
+        "arraysInArrays": false,
+        "objectsInArrays": false,
+        "singleValue": false
+      }
+    ],
+    "block-spacing": "error",
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "computed-property-spacing": [
+      "error",
+      "never"
+    ],
+    "func-call-spacing": [
+      "error",
+      "never"
+    ],
+    "function-paren-newline": [
+      "error",
+      "never"
+    ],
+    "indent": "error",
+    "key-spacing": [
+      "error",
+      {
+        "beforeColon": false
+      }
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "lines-between-class-members": [
+      "error",
+      "always"
+    ],
+    "newline-per-chained-call": [
+      "error",
+      {
+        "ignoreChainWithDepth": 3
+      }
+    ],
+    "no-lonely-if": "error",
+    "no-multiple-empty-lines": "error",
+    "no-trailing-spaces": "error",
+    "no-unneeded-ternary": "error",
+    "no-whitespace-before-property": "error",
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "operator-assignment": [
+      "error",
+      "always"
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": [
+          "const",
+          "let",
+          "var"
+        ]
+      }
+    ],
+    "prefer-object-spread": "error",
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
+    "semi-spacing": "error",
+    "semi": "error",
+    "space-before-blocks": "error",
+    "space-before-function-paren": "error",
+    "space-in-parens": [
+      "error",
+      "never"
+    ]
+  }
+}
