@@ -9,7 +9,7 @@ const welcomeNotesService = {
             .then(response => {
                 console.log(response);
 
-                return response;
+                return response.data;
             })
             .catch(error => {
                 throw error;
@@ -21,9 +21,9 @@ const welcomeNotesService = {
         return axios
             .get(`${baseUrl}/api/product/${productId}`)
             .then(response => {
-                console.log(response);
+                console.log(response.data);
 
-                return response;
+                return response.data;
             })
             .catch(error => {
                 throw error;
@@ -48,7 +48,7 @@ const welcomeNotesService = {
 
         return axios.post(`${baseUrl}/product`, product)
             .then(response => {
-                return response;
+                return response.data;
             })
             .catch(error => {
                 throw error;

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import GridItem from '../../components/Grid/GridItem';
 // import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
+import MainForm from "../../components/MultiStepForm/MainForm";
 
 const useStyles = theme => ({
     bigIndicator: {
@@ -29,7 +30,7 @@ export class DiagnoserPage extends Component {
 
         return (
             <div>
-
+                <MainForm />
             </div>
         );
     }

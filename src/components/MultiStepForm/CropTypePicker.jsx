@@ -29,6 +29,7 @@ export class CropTypePicker extends Component {
 
         return (
             <React.Fragment>
+                <h1>Crop Type Picker</h1>
                 <h1 className="ui centered">Enter User Details</h1>
 
                 <label>First Name</label>
@@ -52,8 +53,13 @@ export class CropTypePicker extends Component {
                     onChange={this.props.handleChange('email')}
                     defaultValue={values.email}
                 />
-
-                <Button onClick={this.saveAndContinue}>Save And Continue </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.saveAndContinue}
+                >
+                    Next
+                </Button>
             </React.Fragment>
         );
     }

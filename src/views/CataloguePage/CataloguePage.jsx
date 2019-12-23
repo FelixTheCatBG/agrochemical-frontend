@@ -32,6 +32,9 @@ const posts = [
 ];
 
 export default class CataloguePage extends Component {
+    state = {
+        products: []
+    }
 
     componentDidMount () {
         productService.getAllProducts()
@@ -49,25 +52,95 @@ export default class CataloguePage extends Component {
             });
     }
 
+    renderProductCard = product => {
+        return <GridItem style={{ marginTop: 20 }} key={product.id} xs={12} sm={4}>
+            <Card>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        alt={product.name}
+                        height="140"
+                        title={product.name}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {product.name}
+                        </Typography>
+                        <Typography component="p">{product.description}</Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    <Button size="small" color="primary">
+                        Share
+                    </Button>
+                    <Button size="small" color="primary">
+                        Learn More
+                    </Button>
+                </CardActions>
+            </Card>
+        </GridItem>;
+    }
+
     render () {
         return (
             <GridContainer>
-                {posts.map(post => (
-                    <GridItem key={post.title} xs={12} sm={4}>
+
+                <GridItem xs={12} sm={3}>Sidebar</GridItem>
+                <GridItem xs={12} sm={9}>
+                    <GridContainer>
+                        {this.state.products && this.state.products.map(product => this.renderProductCard(product))}
+                    </GridContainer>
+
+                </GridItem>
+                {
+                    posts.map(post => (
+                        <GridItem key={post.title} xs={12} sm={4}>
+                            <Card>
+                                <CardActionArea>
+                                    <CardMedia
+                                        component="img"
+                                        alt="Contemplative Reptile"
+                                        height="140"
+                                        image={post.image}
+                                        title="Contemplative Reptile"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            {post.title}
+                                        </Typography>
+                                        <Typography component="p">{post.excerpt}</Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                                <CardActions>
+                                    <Button size="small" color="primary">
+                                        Share
+                                    </Button>
+                                    <Button size="small" color="primary">
+                                        Learn More
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </GridItem>
+                    ))
+                }
+
+
+                {this.state.products && this.state.products.map(product => (
+                    <GridItem style={{ marginTop: 20 }} key={product.id} xs={12} sm={4}>
                         <Card>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
-                                    alt="Contemplative Reptile"
+                                    alt={product.name}
                                     height="140"
-                                    image={post.image}
-                                    title="Contemplative Reptile"
+
+                                    title={product.name}
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        {post.title}
+                                        {product.name}
                                     </Typography>
-                                    <Typography component="p">{post.excerpt}</Typography>
+                                    <Typography component="p">{product.description}</Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>

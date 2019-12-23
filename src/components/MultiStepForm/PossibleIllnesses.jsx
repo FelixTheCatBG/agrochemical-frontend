@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import GridItem from '../../components/Grid/GridItem';
 // import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
-
+import { Button } from "@material-ui/core";
 const useStyles = theme => ({
     bigIndicator: {
         height: 5
@@ -16,23 +16,34 @@ const useStyles = theme => ({
     }
 });
 
-export class DiagnoserPage extends Component {
-    state = { value: 0 };
+export class PossibleIllnesses extends Component {
 
-    handleChange = (event, value) => {
-        this.setState({ value });
-    };
+    saveAndContinue = (e) => {
+        e.preventDefault();
+        this.props.nextStep();
+    }
+
+    back = (e) => {
+        e.preventDefault();
+        this.props.prevStep();
+    }
 
     render () {
-        // const { classes } = this.props;
-        // const { value } = this.state;
 
         return (
             <div>
+                <h1>PossibleIllnesses</h1>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.saveAndContinue}
+                >
+                    Next
+                </Button>
 
             </div>
         );
     }
 }
 
-export default withStyles(useStyles)(DiagnoserPage);
+export default withStyles(useStyles)(PossibleIllnesses);
