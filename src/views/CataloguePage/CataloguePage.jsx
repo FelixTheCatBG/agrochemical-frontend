@@ -40,6 +40,13 @@ export default class CataloguePage extends Component {
                     products: res
                 });
             });
+
+        productService.getProduct(2)
+            .then((res) => {
+                this.setState({
+                    product: res
+                });
+            });
     }
 
     render () {
