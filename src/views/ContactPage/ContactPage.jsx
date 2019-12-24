@@ -25,7 +25,7 @@ export class ContactPage extends Component {
         const { value } = this.state;
 
         return (
-            <div>
+            <div style={{ minHeight: 500 }}>
                 <AppBar position="static" style={{ marginTop: 20 }} key="appbar">
                     <Tabs
                         onChange={this.handleChange}

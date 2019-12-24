@@ -30,6 +30,11 @@ const useStyles = theme => ({
         },
         marginLeft: "auto",
         marginRight: 100
+    },
+    hoverTab: {
+        "&:hover": {
+            backgroundColor: "#eeee"
+        }
     }
 });
 
@@ -91,10 +96,10 @@ export class AppBar extends Component {
                             classes={{ indicator: classes.bigIndicator }}
                             onChange={this.handleChange}
                         >
-                            <Tab label="Home" component={Link} to="/" />
-                            <Tab label="Catalogue" component={Link} to="/catalogue" />
-                            <Tab label="Diagnoser" component={Link} to="/diagnoser" />
-                            <Tab label="Contacts" component={Link} to="/contacts" />
+                            <Tab className={classes.hoverTab} label="Home" component={Link} to="/" />
+                            <Tab className={classes.hoverTab} label="Catalogue" component={Link} to="/catalogue" />
+                            <Tab className={classes.hoverTab} label="Diagnoser" component={Link} to="/diagnoser" />
+                            <Tab className={classes.hoverTab} label="Contacts" component={Link} to="/contacts" />
                             {isAdmin && <Tab label="Admin" component={Link} to="/admin" />}
                             {currentUser && <a onClick={this.logout} className="nav-item nav-link">Logout</a>}
                         </Tabs>

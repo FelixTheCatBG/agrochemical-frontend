@@ -9,31 +9,46 @@ import Button from "@material-ui/core/Button";
 import productService from "../../services/ProductService";
 import GridItem from '../../components/Grid/GridItem';
 import GridContainer from '../../components/Grid/GridContainer';
+import { List, ListItem } from '@material-ui/core';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import InboxIcon from '@material-ui/icons/Inbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import ProductCard from "./ProductCard";
+// const posts = [
 
-const posts = [
+//     {
+//         title: "My first post",
+//         excerpt: "This is my first post with more content inside",
+//         image: "https://bit.ly/2WNi2Ml"
+//     },
 
-    {
-        title: "My first post",
-        excerpt: "This is my first post with more content inside",
-        image: "https://bit.ly/2WNi2Ml"
-    },
+//     {
+//         title: "My second post",
+//         excerpt: "This is my second post with more content inside",
+//         image: "https://bit.ly/2WNi2Ml"
+//     },
 
-    {
-        title: "My second post",
-        excerpt: "This is my second post with more content inside",
-        image: "https://bit.ly/2WNi2Ml"
-    },
-
-    {
-        title: "My third post",
-        excerpt: "This is my third post with more content inside",
-        image: "https://bit.ly/2WNi2Ml"
-    }
-];
+//     {
+//         title: "My third post",
+//         excerpt: "This is my third post with more content inside",
+//         image: "https://bit.ly/2WNi2Ml"
+//     }
+// ];
 
 export default class CataloguePage extends Component {
     state = {
-        products: []
+        products: [],
+        filterByType: "Pesticide",
+        filterBy: '',
+        productDetailsModal: false
+    }
+
+    changeFilter = (filterName) => {
+        this.setState({
+            filterByType: filterName
+        });
     }
 
     componentDidMount () {
@@ -53,7 +68,7 @@ export default class CataloguePage extends Component {
     }
 
     renderProductCard = product => {
-        return <GridItem style={{ marginTop: 20 }} key={product.id} xs={12} sm={4}>
+        return <GridItem style={{ marginTop: 20 }} key={product.id} xs={12} sm={4} >
             <Card>
                 <CardActionArea>
                     <CardMedia
@@ -66,7 +81,7 @@ export default class CataloguePage extends Component {
                         <Typography gutterBottom variant="h5" component="h2">
                             {product.name}
                         </Typography>
-                        <Typography component="p">{product.description}</Typography>
+                        <Typography noWrap component="p">{product.description}</Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
@@ -83,16 +98,46 @@ export default class CataloguePage extends Component {
 
     render () {
         return (
-            <GridContainer>
+            <GridContainer style={{ minHeight: 1800 }}>
 
-                <GridItem xs={12} sm={3}>Sidebar</GridItem>
+                <GridItem xs={12} sm={3}>Sidebar
+                    <List component="nav" aria-label="main mailbox folders">
+                        <ListItem button onClick={() => this.changeFilter("Pesticide")}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Pesticides" />
+                        </ListItem>
+                        <ListItem button onClick={() => this.changeFilter("Insecticide")}>
+                            <ListItemIcon>
+                                <DraftsIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Insecticides" />
+                        </ListItem>
+                        <ListItem button onClick={() => this.changeFilter("Fungicides")}>
+                            <ListItemIcon>
+                                <DraftsIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Third" />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                </GridItem>
+
                 <GridItem xs={12} sm={9}>
                     <GridContainer>
-                        {this.state.products && this.state.products.map(product => this.renderProductCard(product))}
+                        {/* {this.state.products && this.state.products
+                            .filter(product => product.category === this.state.filterByType)
+                            .map(product => this.renderProductCard(product))
+                        } */}
+                        {this.state.products && this.state.products
+                            .filter(product => product.category === this.state.filterByType)
+                            .map(product => <ProductCard product={product} />)
+                        }
                     </GridContainer>
 
                 </GridItem>
-                {
+                {/* {
                     posts.map(post => (
                         <GridItem key={post.title} xs={12} sm={4}>
                             <Card>
@@ -108,7 +153,7 @@ export default class CataloguePage extends Component {
                                         <Typography gutterBottom variant="h5" component="h2">
                                             {post.title}
                                         </Typography>
-                                        <Typography component="p">{post.excerpt}</Typography>
+                                        <Typography noWrap component="p">{post.excerpt}</Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
@@ -122,7 +167,7 @@ export default class CataloguePage extends Component {
                             </Card>
                         </GridItem>
                     ))
-                }
+                } */}
 
 
                 {this.state.products && this.state.products.map(product => (
