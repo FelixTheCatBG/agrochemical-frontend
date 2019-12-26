@@ -6,6 +6,7 @@ import { authenticationService } from './services';
 import { PrivateRoute } from './components';
 import Footer from './components/MainComponents/Footer';
 import HomePage from './views/HomePage/HomePage';
+import AboutPage from './views/AboutPage/AboutPage';
 import AdminPage from './views/AdminPage/AdminPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import CataloguePage from './views/CataloguePage/CataloguePage';
@@ -29,7 +30,7 @@ class App extends React.Component {
         authenticationService.currentUser.subscribe(x => this.setState({
             currentUser: x,
             // isAdmin: x && x.role === Role.Admin
-            isAdmin: x && x.role === "Customer"
+            isAdmin: x && x.userRole === "Admin"
         }));
     }
 
@@ -45,7 +46,7 @@ class App extends React.Component {
             <ThemeProvider theme={theme}>
                 <Container maxWidth="lg">
                     <BrowserRouter history={history}>
-                        <AppBar currentUser={currentUser} isAdmin={isAdmin} />
+                        <AppBar currentUser={currentUser} isAdmin={isAdmin} logout={this.logout} />
                         {/* {currentUser && */}
                         {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
                         <div className="navbar-nav">
@@ -60,6 +61,7 @@ class App extends React.Component {
                             <PrivateRoute path="/admin" roles={[Role.Admin]} component={AdminPage} />
                             <Route path="/login" component={LoginPage} />
                             <Route exact path="/" component={HomePage} />
+                            <Route exact path="/about" component={AboutPage} />
                             <Route exact path="/catalogue" component={CataloguePage} />
                             <Route exact path="/diagnoser" component={DiagnoserPage} />
                             <Route exact path="/contacts" component={ContactPage} />

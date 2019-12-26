@@ -5,7 +5,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 const useStyles = theme => ({
     root: {
-        backgroundColor: "#3f51b5",
+        backgroundColor: "#37b44e",
         color: "white",
         marginBottom: 0
     },

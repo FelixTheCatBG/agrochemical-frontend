@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import GridItem from '../../components/Grid/GridItem';
 // import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Button } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 
 const useStyles = theme => ({
     bigIndicator: {
@@ -19,10 +19,10 @@ const useStyles = theme => ({
 
 export class CropTypePicker extends Component {
 
-    saveAndContinue = (e) => {
-        e.preventDefault();
-        this.props.nextStep();
-    }
+    // saveAndContinue = (e) => {
+    //     e.preventDefault();
+    //     this.props.nextStep();
+    // }
 
     render () {
         const { values } = this.props;
@@ -33,33 +33,57 @@ export class CropTypePicker extends Component {
                 <h1 className="ui centered">Enter User Details</h1>
 
                 <label>First Name</label>
-                <input
-                    placeholder='First Name'
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="First Name"
+                    name="firstName"
+                    autoComplete="email"
                     onChange={this.props.handleChange('firstName')}
                     defaultValue={values.firstName}
+                    autoFocus
                 />
 
                 <label>Last Name</label>
-                <input
-                    placeholder='Last Name'
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="lastName"
+                    autoComplete="email"
                     onChange={this.props.handleChange('lastName')}
                     defaultValue={values.lastName}
+                    autoFocus
                 />
 
                 <label>Email Address</label>
-                <input
-                    type='email'
-                    placeholder='Email Address'
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="username"
+                    autoComplete="email"
                     onChange={this.props.handleChange('email')}
                     defaultValue={values.email}
+                    autoFocus
                 />
-                <Button
+
+                {/* <Button
                     variant="contained"
                     color="primary"
                     onClick={this.saveAndContinue}
                 >
                     Next
-                </Button>
+                </Button> */}
             </React.Fragment>
         );
     }

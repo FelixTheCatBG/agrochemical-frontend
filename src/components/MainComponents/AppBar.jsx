@@ -23,19 +23,22 @@ const useStyles = theme => ({
     },
     bigIndicator: {
         height: 3
+        //  marginBottom: 5
     },
     buttonsBar: {
         [theme.breakpoints.down("xs")]: {
             display: "none"
         },
         marginLeft: "auto",
-        marginRight: 100
+        marginRight: 100,
+        color: "white"
     },
     hoverTab: {
         "&:hover": {
             backgroundColor: "#eeee"
         }
     }
+
 });
 
 export class AppBar extends Component {
@@ -43,11 +46,12 @@ export class AppBar extends Component {
 
     handleChange = (event, value) => {
         this.setState({ value });
+        console.log(this.props.isAdmin);
     };
 
     render () {
 
-        const { currentUser, isAdmin, classes } = this.props;
+        const { currentUser, classes } = this.props;
         const { value } = this.state;
 
         return (
@@ -97,11 +101,12 @@ export class AppBar extends Component {
                             onChange={this.handleChange}
                         >
                             <Tab className={classes.hoverTab} label="Home" component={Link} to="/" />
+                            <Tab className={classes.hoverTab} label="About" component={Link} to="/about" />
                             <Tab className={classes.hoverTab} label="Catalogue" component={Link} to="/catalogue" />
                             <Tab className={classes.hoverTab} label="Diagnoser" component={Link} to="/diagnoser" />
                             <Tab className={classes.hoverTab} label="Contacts" component={Link} to="/contacts" />
-                            {isAdmin && <Tab label="Admin" component={Link} to="/admin" />}
-                            {currentUser && <a onClick={this.logout} className="nav-item nav-link">Logout</a>}
+                            {this.props.isAdmin && <Tab label="Admin" component={Link} to="/admin" />}
+                            {currentUser && <a onClick={this.props.logout} className="nav-item nav-link">Logout</a>}
                         </Tabs>
                     </span>
                     <span className={classes.collapseMenu}>

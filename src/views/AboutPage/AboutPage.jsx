@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // import GridItem from '../../components/Grid/GridItem';
 // import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
+import MainForm from "../../components/MultiStepForm/MainForm";
+
 const useStyles = theme => ({
     bigIndicator: {
         height: 5
@@ -15,34 +17,23 @@ const useStyles = theme => ({
     }
 });
 
-export class PossibleIllnesses extends Component {
+export class AboutPage extends Component {
+    state = { value: 0 };
 
-    // saveAndContinue = (e) => {
-    //     e.preventDefault();
-    //     this.props.nextStep();
-    // }
-
-    // back = (e) => {
-    //     e.preventDefault();
-    //     this.props.prevStep();
-    // }
+    handleChange = (event, value) => {
+        this.setState({ value });
+    };
 
     render () {
+        // const { classes } = this.props;
+        // const { value } = this.state;
 
         return (
             <div>
-                <h1>PossibleIllnesses</h1>
-                {/* <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={this.saveAndContinue}
-                >
-                    Next
-                </Button> */}
-
+                <MainForm />
             </div>
         );
     }
 }
 
-export default withStyles(useStyles)(PossibleIllnesses);
+export default withStyles(useStyles)(AboutPage);

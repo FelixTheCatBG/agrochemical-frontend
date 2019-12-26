@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 // import GridItem from '../../components/Grid/GridItem';
 // import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Button } from "@material-ui/core";
 const useStyles = theme => ({
     bigIndicator: {
         height: 5
@@ -17,27 +16,27 @@ const useStyles = theme => ({
 });
 
 export class SymptomsPicker extends Component {
-    saveAndContinue = (e) => {
-        e.preventDefault();
-        this.props.nextStep();
-    }
+    // saveAndContinue = (e) => {
+    //     e.preventDefault();
+    //     this.props.nextStep();
+    // }
 
-    back = (e) => {
-        e.preventDefault();
-        this.props.prevStep();
-    }
+    // back = (e) => {
+    //     e.preventDefault();
+    //     this.props.prevStep();
+    // }
 
     render () {
         return (
             <div>
                 <h1>Symptoms Picker</h1>
-                <Button
+                {/* <Button
                     variant="contained"
                     color="primary"
                     onClick={this.saveAndContinue}
                 >
                     Next
-                </Button>
+                </Button> */}
             </div>
         );
     }

@@ -10,11 +10,8 @@ import productService from "../../services/ProductService";
 import GridItem from '../../components/Grid/GridItem';
 import GridContainer from '../../components/Grid/GridContainer';
 import { List, ListItem } from '@material-ui/core';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import ProductCard from "./ProductCard";
 // const posts = [
 
@@ -93,31 +90,31 @@ export default class CataloguePage extends Component {
                     </Button>
                 </CardActions>
             </Card>
-        </GridItem>;
+        </GridItem >;
     }
 
     render () {
         return (
-            <GridContainer style={{ minHeight: 1800 }}>
+            <GridContainer style={{ minHeight: 600 }}>
 
-                <GridItem xs={12} sm={3}>Sidebar
-                    <List component="nav" aria-label="main mailbox folders">
+                <GridItem xs={12} sm={3}>
+                    <List style={{ marginTop: 30 }} component="nav" aria-label="main mailbox folders">
                         <ListItem button onClick={() => this.changeFilter("Pesticide")}>
-                            <ListItemIcon>
+                            {/* <ListItemIcon>
                                 <InboxIcon />
-                            </ListItemIcon>
+                            </ListItemIcon> */}
                             <ListItemText primary="Pesticides" />
                         </ListItem>
                         <ListItem button onClick={() => this.changeFilter("Insecticide")}>
-                            <ListItemIcon>
+                            {/* <ListItemIcon>
                                 <DraftsIcon />
-                            </ListItemIcon>
+                            </ListItemIcon> */}
                             <ListItemText primary="Insecticides" />
                         </ListItem>
                         <ListItem button onClick={() => this.changeFilter("Fungicides")}>
-                            <ListItemIcon>
+                            {/* <ListItemIcon>
                                 <DraftsIcon />
-                            </ListItemIcon>
+                            </ListItemIcon> */}
                             <ListItemText primary="Third" />
                         </ListItem>
                     </List>

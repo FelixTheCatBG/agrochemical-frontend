@@ -1,12 +1,17 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import cyan from '@material-ui/core/colors/cyan';
-import green from '@material-ui/core/colors/green';
+// import cyan from '@material-ui/core/colors/cyan';
+// import green from '@material-ui/core/colors/green';
 // import { scaleUpTextColor } from "assets/jss/scaleUpVariables.js";
 
 const theme = createMuiTheme({
     palette: {
-        primary: cyan,
-        secondary: green
+        type: 'light',
+        primary: {
+            main: '#37b44e'
+        },
+        secondary: {
+            main: '#ff8829'
+        }
     },
     MuiTab: {
         minHeight: 75
