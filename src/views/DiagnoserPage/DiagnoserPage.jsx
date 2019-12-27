@@ -12,6 +12,7 @@ import Introduction from "../../components/MultiStepForm/Introduction";
 import CropTypePicker from "../../components/MultiStepForm/CropTypePicker";
 import SymptomsPicker from "../../components/MultiStepForm/SymptomsPicker";
 import PossibleIllnesses from "../../components/MultiStepForm/PossibleIllnesses";
+import GridContainer from '../../components/Grid/GridContainer';
 
 const useStyles = theme => ({
     root: {
@@ -27,6 +28,13 @@ const useStyles = theme => ({
     nextButton: {
         float: "right",
         color: "white"
+    },
+    stepperBox: {
+        maxWidth: "80%",
+        margin: "0 auto",
+        border: "1px solid #eee",
+        borderRadius: 5,
+        padding: 30
     }
 });
 
@@ -39,15 +47,13 @@ function getSteps () {
     ];
 }
 
-const handleChange = input => event => {
-    this.setState({ [input]: event.target.value });
-};
-
 export class DiagnoserPage extends React.Component {
     constructor () {
         super();
         this.state = {
             activeStep: 0,
+            chosenCategory: {},
+            chosenSymptoms: [],
             firstName: '',
             lastName: '',
             email: '',
@@ -55,7 +61,6 @@ export class DiagnoserPage extends React.Component {
             city: '',
             country: ''
         };
-
     }
 
     // const[activeStep, setActiveStep] = React.useState(0);
@@ -90,6 +95,10 @@ export class DiagnoserPage extends React.Component {
         });
     };
 
+    handleChange = input => event => {
+        this.setState({ [input]: event.target.value });
+    };
+
     // const handleSkip = () => {
     //   if (!isStepOptional(activeStep)) {
     //     // You probably want to guard against something like this,
@@ -114,13 +123,13 @@ export class DiagnoserPage extends React.Component {
     getStepContent = (step) => {
         switch (step) {
         case 0:
-            return <Introduction handleChange={handleChange} values={this.state} />;
+            return <Introduction handleChange={this.handleChange} values={this.state} />;
         case 1:
-            return <CropTypePicker handleChange={handleChange} values={this.state} />;
+            return <CropTypePicker handleChange={this.handleChange} values={this.state} />;
         case 2:
-            return <SymptomsPicker handleChange={handleChange} values={this.state} />;
+            return <SymptomsPicker handleChange={this.handleChange} values={this.state} />;
         case 3:
-            return <PossibleIllnesses handleChange={handleChange} values={this.state} />;
+            return <PossibleIllnesses handleChange={this.handleChange} values={this.state} />;
         default:
             return "Unknown step";
         }
@@ -133,45 +142,48 @@ export class DiagnoserPage extends React.Component {
         // const { firstName, lastName, email, age, city, country } = this.state;
 
         return (
-            <div className={classes.root} >
-                <Stepper activeStep={activeStep}>
-                    {steps.map((label, index) => {
-                        const stepProps = {};
-                        const labelProps = {};
+            <GridContainer body>
+                <div className={classes.root} >
+                    <Stepper style={{ margin: 30, marginTop: 40 }} activeStep={activeStep}>
+                        {steps.map((label, index) => {
+                            const stepProps = {};
+                            const labelProps = {};
 
-                        return (
-                            <Step key={label} {...stepProps}>
-                                <StepLabel {...labelProps}>{label}</StepLabel>
-                            </Step>
-                        );
-                    })}
-                </Stepper>
+                            return (
+                                <Step key={label} {...stepProps}>
+                                    <StepLabel {...labelProps}>{label}</StepLabel>
+                                </Step>
+                            );
+                        })}
+                    </Stepper>
 
-                <div>
-                    {activeStep === steps.length ? (
-                        <div>
-                            <Typography className={classes.instructions}>
-                                All steps completed - you&apos;re finished
-                            </Typography>
-                            <Button onClick={this.handleReset} className={classes.button}>
-                                Reset
-                            </Button>
-                        </div>
-                    ) : (
-                        <div>
-                            <Typography className={classes.instructions}>
-                                {this.getStepContent(activeStep)}
-                            </Typography>
+                    <div>
+                        {activeStep === steps.length ? (
                             <div>
-                                <Button
-                                    disabled={activeStep === 0}
-                                    onClick={this.handleBack}
-                                    className={classes.button}
-                                >
-                                        Back
+                                <Typography className={classes.instructions}>
+                                    All steps completed - you&apos;re finished
+                                </Typography>
+                                <Button onClick={this.handleReset} className={classes.button}>
+                                    Reset
                                 </Button>
+                            </div>
+                        ) : (
+                            <div className={classes.stepperBox}>
+                                <Typography className={classes.instructions}>
 
-                                {/* {isStepOptional(activeStep) && (
+                                    {this.getStepContent(activeStep)}
+
+                                </Typography>
+                                <div>
+                                    <Button
+                                        disabled={activeStep === 0}
+                                        onClick={this.handleBack}
+                                        className={classes.button}
+                                    >
+                                            Back
+                                    </Button>
+
+                                    {/* {isStepOptional(activeStep) && (
                 <Button
                   variant="contained"
                   color="primary"
@@ -182,19 +194,20 @@ export class DiagnoserPage extends React.Component {
                 </Button>
               )} */}
 
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleNext}
-                                    className={`${classes.button} ${classes.nextButton}`}
-                                >
-                                    {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                                </Button>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.handleNext}
+                                        className={`${classes.button} ${classes.nextButton}`}
+                                    >
+                                        {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                                    </Button>
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
-            </div >
+            </GridContainer>
         );
     }
 }

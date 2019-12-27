@@ -1,11 +1,11 @@
 import axios from 'axios';
 const baseUrl = 'https://localhost:44359';
 
-const welcomeNotesService = {
+const symptomService = {
 
-    getAllCrops: () => {
+    getAllSymptoms: () => {
         return axios
-            .get(`${baseUrl}/api/product`)
+            .get(`${baseUrl}/api/symptom`)
             .then(response => {
                 console.log(response);
 
@@ -19,7 +19,7 @@ const welcomeNotesService = {
     getProduct: productId => {
 
         return axios
-            .get(`${baseUrl}/api/crop/${productId}`)
+            .get(`${baseUrl}/api/product/${productId}`)
             .then(response => {
                 console.log(response.data);
 
@@ -30,19 +30,20 @@ const welcomeNotesService = {
             });
 
     },
-    getAllCategories: () => {
-        return axios
-            .get(`${baseUrl}/api/cropcategory`)
-            .then(response => {
-                console.log(response.data);
+    // getActiveNote: () => {
 
-                return response.data;
-            })
-            .catch(error => {
-                throw error;
-            });
+    //     return axios
+    //         .get('/welcomenotes?activeNote=true')
+    //         .then(response => {
+    //             return response.data;
+    //         })
+    //         .catch(error => {
+    //             globalErrorHandler(error);
 
-    },
+    //             throw error.response;
+    //         });
+
+    // },
     saveProduct: product => {
 
         return axios.post(`${baseUrl}/product`, product)
@@ -83,4 +84,4 @@ const welcomeNotesService = {
 
 };
 
-export default welcomeNotesService;
+export default symptomService;

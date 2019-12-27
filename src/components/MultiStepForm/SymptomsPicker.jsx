@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // import GridItem from '../../components/Grid/GridItem';
 // import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
+import symptomService from "../../services/SymptomService";
+
 const useStyles = theme => ({
     bigIndicator: {
         height: 5
@@ -26,10 +28,29 @@ export class SymptomsPicker extends Component {
     //     this.props.prevStep();
     // }
 
+    state = {
+        symptoms: []
+    }
+
+    componentDidMount () {
+        symptomService.getAllSymptoms()
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    symptoms: res
+                });
+            });
+    }
+
     render () {
         return (
             <div>
                 <h1>Symptoms Picker</h1>
+                {
+                    this.state.symptoms.map(symptom => (
+                        <div>{symptom.name}</div>
+                    ))
+                }
                 {/* <Button
                     variant="contained"
                     color="primary"
@@ -37,6 +58,9 @@ export class SymptomsPicker extends Component {
                 >
                     Next
                 </Button> */}
+                {/* {this.state.symptoms.map(symptom => (
+                    <p>{symptom.name}</p>
+                ))} */}
             </div>
         );
     }

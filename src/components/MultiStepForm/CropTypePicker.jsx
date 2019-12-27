@@ -4,6 +4,12 @@ import React, { Component } from 'react';
 // import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
 import { TextField } from "@material-ui/core";
+import cropService from "../../services/CropService";
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 
 const useStyles = theme => ({
     bigIndicator: {
@@ -14,31 +20,85 @@ const useStyles = theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
         marginBottom: 20
+    },
+    formControl: {
+        width: "100%",
+        minWidth: 120
     }
 });
 
 export class CropTypePicker extends Component {
+    state = {
+        categories: [],
+        chosenCategory: {},
+        age: ""
+    }
 
     // saveAndContinue = (e) => {
     //     e.preventDefault();
     //     this.props.nextStep();
     // }
+    componentDidMount () {
+        cropService.getAllCategories()
+            .then((res) => {
+                this.setState({
+                    categories: res
+                });
+            });
+
+    }
+
+    handleInputChange = e => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        this.setState({
+            [name]: value
+        }, () => console.log(this.state.chosenCategory));
+    };
 
     render () {
-        const { values } = this.props;
+        const { values, classes } = this.props;
 
         return (
             <React.Fragment>
                 <h1>Crop Type Picker</h1>
-                <h1 className="ui centered">Enter User Details</h1>
+                {/* {
+                    this.state.categories.map(category => (
+                        <div>{category.name}</div>
+                    ))
+                } */}
+                <FormControl variant="outlined" className={classes.formControl}>
+                    <InputLabel htmlFor="outlined-chosenCategory-simple">
+                        Category
+                    </InputLabel>
+                    <Select
+                        value={this.state.chosenCategory}
+                        onChange={this.handleInputChange}
+                        labelWidth={100}
+                        inputProps={{
+                            name: 'chosenCategory',
+                            id: 'outlined-chosenCategory-simple'
+                        }}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        {
+                            this.state.categories.map(category => (
+                                <MenuItem value={category}>{category.name}</MenuItem>
+                            ))
+                        }
+                    </Select>
+                </FormControl>
 
-                <label>First Name</label>
+                <h1 className="ui centered">Enter User Details</h1>
                 <TextField
                     variant="outlined"
                     margin="normal"
                     required
                     fullWidth
-                    id="email"
+                    id="firstName"
                     label="First Name"
                     name="firstName"
                     autoComplete="email"
@@ -53,7 +113,7 @@ export class CropTypePicker extends Component {
                     margin="normal"
                     required
                     fullWidth
-                    id="email"
+                    id="lastName"
                     label="Email Address"
                     name="lastName"
                     autoComplete="email"

@@ -24,10 +24,10 @@ const useStyles = theme => ({
         maxHeight: 700,
         backgroundImage: `url(${backgroundImage})`,
         backgroundPosition: "center center",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+        backgrounAttachment: "fixed"
     },
     callToActionBox: {
-        height: 40,
         width: "100%",
         backgroundColor: "#37b44e",
         padding: 30

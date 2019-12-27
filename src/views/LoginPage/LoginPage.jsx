@@ -7,11 +7,14 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import { authenticationService } from "../../services";
 
+import AgroLoader from "../../components/Shared/AgroLoader";
+import AgroSnackbar from "../../components/Shared/AgroSnackbar";
+import GridContainer from "../../components/Grid/GridContainer";
 // function Copyright() {
 //     return (
 //         <Typography variant="body2" color="textSecondary" align="center">
@@ -25,7 +28,6 @@ import Container from "@material-ui/core/Container";
 //     );
 // }
 
-import { authenticationService } from "../../services";
 
 // const useStyles = makeStyles(theme => ({
 //     paper: {
@@ -53,7 +55,13 @@ class LoginPage extends React.Component {
 
         this.state = {
             username: "",
-            password: ""
+            password: "",
+
+            isLoading: false,
+            success: false,
+            action: '',
+            errorMessage: false,
+            successAction: "Login"
         };
     }
 
@@ -70,17 +78,22 @@ class LoginPage extends React.Component {
         const password = this.state.password;
 
         authenticationService.login(username, password).then(user => {
-            // console.log(user);s
+            // console.log(user);
             const { from } = this.props.location.state || {
                 from: { pathname: "/" }
             };
 
             this.props.history.push(from);
-        },
-        error => {
-            //console.log(error);
+        }).catch(error => {
+            return error;
         });
     };
+
+    onSnackbarClose = () => {
+        this.setState({
+            successAction: ""
+        });
+    }
 
     handleInputChange = e => {
         const name = e.target.name;
@@ -92,12 +105,18 @@ class LoginPage extends React.Component {
     };
 
     render () {
-        const disabled = !this.state.username && !this.state.password;
+        const disabled = !this.state.username || !this.state.password;
+
+        if (this.state.isLoading) {
+            return <GridContainer body>
+                <AgroLoader />
+            </GridContainer>;
+        }
 
         return (
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
-                <div style={{ marginTop: 50 }}>
+                <div style={{ marginTop: 50, marginBottom: 50 }}>
                     <Avatar>
                         <LockOutlinedIcon />
                     </Avatar>
@@ -157,7 +176,9 @@ class LoginPage extends React.Component {
                         </Grid>
                     </form>
                 </div>
-                <Box mt={8}>{/* <Copyright /> */}</Box>
+                {this.state.successAction && <AgroSnackbar type={'success'} message={`${this.state.successAction} Successful`} onClose={this.onSnackbarClose} />}
+
+                {this.state.errorMessage && <AgroSnackbar type={'error'} message={`Delete Successful`} onSnackbarClose={this.onSnackbarClose} />}
             </Container>
         );
     }

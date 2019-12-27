@@ -44,7 +44,7 @@ class App extends React.Component {
 
         return (
             <ThemeProvider theme={theme}>
-                <Container maxWidth="lg">
+                <Container style={{ padding: 0 }} maxWidth="lg" >
                     <BrowserRouter history={history}>
                         <AppBar currentUser={currentUser} isAdmin={isAdmin} logout={this.logout} />
                         {/* {currentUser && */}

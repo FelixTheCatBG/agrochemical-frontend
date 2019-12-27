@@ -13,6 +13,7 @@ import { List, ListItem } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import ProductCard from "./ProductCard";
+import AgroLoader from "../../components/Shared/AgroLoader";
 // const posts = [
 
 //     {
@@ -39,7 +40,8 @@ export default class CataloguePage extends Component {
         products: [],
         filterByType: "Pesticide",
         filterBy: '',
-        productDetailsModal: false
+        productDetailsModal: false,
+        isLoading: true
     }
 
     changeFilter = (filterName) => {
@@ -52,7 +54,8 @@ export default class CataloguePage extends Component {
         productService.getAllProducts()
             .then((res) => {
                 this.setState({
-                    products: res
+                    products: res,
+                    isLoading: false
                 });
             });
 
@@ -90,7 +93,7 @@ export default class CataloguePage extends Component {
                     </Button>
                 </CardActions>
             </Card>
-        </GridItem >;
+        </GridItem>;
     }
 
     render () {
@@ -122,14 +125,16 @@ export default class CataloguePage extends Component {
                 </GridItem>
 
                 <GridItem xs={12} sm={9}>
-                    <GridContainer>
+                    <GridContainer body>
                         {/* {this.state.products && this.state.products
                             .filter(product => product.category === this.state.filterByType)
                             .map(product => this.renderProductCard(product))
                         } */}
-                        {this.state.products && this.state.products
-                            .filter(product => product.category === this.state.filterByType)
-                            .map(product => <ProductCard product={product} />)
+                        {!this.state.isLoading ?
+                            this.state.products && this.state.products
+                                .filter(product => product.category === this.state.filterByType)
+                                .map(product => <ProductCard product={product} />)
+                            : <AgroLoader />
                         }
                     </GridContainer>
 
