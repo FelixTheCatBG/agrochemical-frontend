@@ -3,7 +3,7 @@ const baseUrl = 'https://localhost:44359';
 
 const welcomeNotesService = {
 
-    getAllProducts: () => {
+    getAllCrops: () => {
         return axios
             .get(`${baseUrl}/api/product`)
             .then(response => {
@@ -19,7 +19,7 @@ const welcomeNotesService = {
     getProduct: productId => {
 
         return axios
-            .get(`${baseUrl}/api/product/${productId}`)
+            .get(`${baseUrl}/api/crop/${productId}`)
             .then(response => {
                 console.log(response.data);
 
@@ -30,20 +30,19 @@ const welcomeNotesService = {
             });
 
     },
-    // getActiveNote: () => {
+    getAllCategories: () => {
+        return axios
+            .get(`${baseUrl}/api/cropcategory`)
+            .then(response => {
+                console.log(response.data);
 
-    //     return axios
-    //         .get('/welcomenotes?activeNote=true')
-    //         .then(response => {
-    //             return response.data;
-    //         })
-    //         .catch(error => {
-    //             globalErrorHandler(error);
+                return response.data;
+            })
+            .catch(error => {
+                throw error;
+            });
 
-    //             throw error.response;
-    //         });
-
-    // },
+    },
     saveProduct: product => {
 
         return axios.post(`${baseUrl}/product`, product)

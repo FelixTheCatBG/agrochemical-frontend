@@ -46,7 +46,7 @@
     "array-callback-return": "error",
     "block-scoped-var": "error",
     "consistent-return": "error",
-    "default-case": "error",
+    "default-case": "warn",
     "dot-location": "error",
     "dot-notation": "error",
     "eqeqeq": "error",

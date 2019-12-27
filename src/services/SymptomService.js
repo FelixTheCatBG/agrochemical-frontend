@@ -1,11 +1,11 @@
 import axios from 'axios';
 const baseUrl = 'https://localhost:44359';
 
-const welcomeNotesService = {
+const symptomService = {
 
-    getAllProducts: () => {
+    getAllSymptoms: () => {
         return axios
-            .get(`${baseUrl}/api/product`)
+            .get(`${baseUrl}/api/symptom`)
             .then(response => {
                 console.log(response);
 
@@ -84,4 +84,4 @@ const welcomeNotesService = {
 
 };
 
-export default welcomeNotesService;
+export default symptomService;

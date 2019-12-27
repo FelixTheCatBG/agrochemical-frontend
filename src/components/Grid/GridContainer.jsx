@@ -5,17 +5,19 @@ import Grid from "@material-ui/core/Grid";
 
 const style = {
     grid: {
-        margin: 0,
-        padding: 30
-
+        margin: 0
+        // padding: 30
+    },
+    body: {
+        minHeight: 600
     }
 };
 
 function GridContainer (props) {
-    const { classes, children, ...rest } = props;
+    const { body, classes, children, ...rest } = props;
 
     return (
-        <Grid container {...rest} className={classes.grid}>
+        <Grid container {...rest} className={`${classes.grid} ${body ? classes.body : null}`}>
             {children}
         </Grid>
     );
