@@ -15,6 +15,7 @@ import { authenticationService } from "../../services";
 import AgroLoader from "../../components/Shared/AgroLoader";
 import AgroSnackbar from "../../components/Shared/AgroSnackbar";
 import GridContainer from "../../components/Grid/GridContainer";
+
 // function Copyright() {
 //     return (
 //         <Typography variant="body2" color="textSecondary" align="center">
@@ -49,6 +50,12 @@ import GridContainer from "../../components/Grid/GridContainer";
 //     }
 // }));
 
+const ErrorValidationLabel = ({ txtLbl }) => (
+    <label htmlFor="" style={{ color: "red" }}>
+        {txtLbl}
+    </label>
+);
+
 class LoginPage extends React.Component {
     constructor (props) {
         super(props);
@@ -73,6 +80,23 @@ class LoginPage extends React.Component {
 
     signIn = e => {
         e.preventDefault();
+
+        this.setState({
+            emailErrorMessage: "",
+            passwordErrorMessage: ""
+        });
+
+        if (!/(.+)@(.+){2,}\.(.+){2,}/.test(this.state.username)) {
+            this.setState({ emailErrorMessage: "Emails must be valid such as username@gmail.com" });
+
+            return;
+        }
+
+        if (this.state.password.length < 4) {
+            this.setState({ passwordErrorMessage: "Password must be more than 3 chars" });
+
+            return;
+        }
 
         const username = this.state.username;
         const password = this.state.password;
@@ -104,8 +128,11 @@ class LoginPage extends React.Component {
         });
     };
 
+
     render () {
         const disabled = !this.state.username || !this.state.password;
+
+        const { emailErrorMessage, passwordErrorMessage } = this.state;
 
         if (this.state.isLoading) {
             return <GridContainer body>
@@ -120,10 +147,10 @@ class LoginPage extends React.Component {
                     <Avatar>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" >
                         Sign in
                     </Typography>
-                    <form >
+                    <form>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -136,6 +163,9 @@ class LoginPage extends React.Component {
                             onChange={this.handleInputChange}
                             autoFocus
                         />
+
+                        {emailErrorMessage && <ErrorValidationLabel txtLbl={emailErrorMessage} />}
+
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -148,6 +178,8 @@ class LoginPage extends React.Component {
                             autoComplete="current-password"
                             onChange={this.handleInputChange}
                         />
+                        {passwordErrorMessage && <ErrorValidationLabel txtLbl={passwordErrorMessage} />}
+
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"

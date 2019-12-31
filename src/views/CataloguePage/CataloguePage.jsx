@@ -14,6 +14,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import ProductCard from "./ProductCard";
 import AgroLoader from "../../components/Shared/AgroLoader";
+import withStyles from "@material-ui/core/styles/withStyles";
+
 // const posts = [
 
 //     {
@@ -35,7 +37,18 @@ import AgroLoader from "../../components/Shared/AgroLoader";
 //     }
 // ];
 
-export default class CataloguePage extends Component {
+const useStyles = theme => ({
+    // root: {
+    //     flexGrow: 1
+    // },
+    active: {
+        backgroundColor: "#37b44e",
+        color: "#fff"
+    }
+});
+
+
+class CataloguePage extends Component {
     state = {
         products: [],
         filterByType: "Pesticide",
@@ -78,7 +91,7 @@ export default class CataloguePage extends Component {
                         title={product.name}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography gutterBottom component="h2">
                             {product.name}
                         </Typography>
                         <Typography noWrap component="p">{product.description}</Typography>
@@ -97,24 +110,26 @@ export default class CataloguePage extends Component {
     }
 
     render () {
+        const { classes } = this.props;
+
         return (
             <GridContainer style={{ minHeight: 600 }}>
 
                 <GridItem xs={12} sm={3}>
                     <List style={{ marginTop: 30 }} component="nav" aria-label="main mailbox folders">
-                        <ListItem button onClick={() => this.changeFilter("Pesticide")}>
+                        <ListItem className={this.state.filterByType === "Pesticide" ? classes.active : null} button onClick={() => this.changeFilter("Pesticide")}>
                             {/* <ListItemIcon>
                                 <InboxIcon />
                             </ListItemIcon> */}
                             <ListItemText primary="Pesticides" />
                         </ListItem>
-                        <ListItem button onClick={() => this.changeFilter("Insecticide")}>
+                        <ListItem className={this.state.filterByType === "Insecticide" ? classes.active : null} button onClick={() => this.changeFilter("Insecticide")}>
                             {/* <ListItemIcon>
                                 <DraftsIcon />
                             </ListItemIcon> */}
-                            <ListItemText primary="Insecticides" />
+                            <ListItemText primary="Insecticide" />
                         </ListItem>
-                        <ListItem button onClick={() => this.changeFilter("Fungicides")}>
+                        <ListItem className={this.state.filterByType === "Fungicides" ? classes.active : null} button onClick={() => this.changeFilter("Fungicides")}>
                             {/* <ListItemIcon>
                                 <DraftsIcon />
                             </ListItemIcon> */}
@@ -184,7 +199,7 @@ export default class CataloguePage extends Component {
                                     title={product.name}
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
+                                    <Typography gutterBottom >
                                         {product.name}
                                     </Typography>
                                     <Typography component="p">{product.description}</Typography>
@@ -206,3 +221,5 @@ export default class CataloguePage extends Component {
         );
     }
 }
+
+export default withStyles(useStyles)(CataloguePage);

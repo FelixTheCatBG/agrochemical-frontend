@@ -41,7 +41,7 @@ export class HomePage extends Component {
         return (
             <GridContainer>
                 <div className={classes.firstHeader}>
-                    <GridContainer maxWidth="lg">
+                    <GridContainer>
                         <GridItem xs={12}>
                             <div style={{ padding: 50 }}>
                                 <h1>Agrochemical is company about... </h1>
