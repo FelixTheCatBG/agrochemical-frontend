@@ -73,7 +73,7 @@ export class Footer extends Component {
                         <div className={classes.location}>
                             <h4 >Location</h4>
                             <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-                            <p ><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+                            <p ><i ></i>(541) 754-3010</p>
                             <p><i ></i>info@hsdf.com</p>
                         </div>
                     </GridItem>

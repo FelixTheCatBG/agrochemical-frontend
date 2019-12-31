@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AppBar from "./components/MainComponents/AppBar";
 import { history, Role } from './utils';
 import { authenticationService } from './services';
@@ -45,7 +45,7 @@ class App extends React.Component {
         return (
             <ThemeProvider theme={theme}>
                 <Container style={{ padding: 0 }} maxWidth="lg" >
-                    <BrowserRouter history={history}>
+                    <Router history={history}>
                         <AppBar currentUser={currentUser} isAdmin={isAdmin} logout={this.logout} />
                         {/* {currentUser && */}
                         {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -66,7 +66,7 @@ class App extends React.Component {
                             <Route exact path="/diagnoser" component={DiagnoserPage} />
                             <Route exact path="/contacts" component={ContactPage} />
                         </Switch>
-                    </BrowserRouter>
+                    </Router>
                     <Footer />
                 </Container>
             </ThemeProvider>

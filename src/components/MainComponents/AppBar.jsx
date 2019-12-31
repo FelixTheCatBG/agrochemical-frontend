@@ -57,7 +57,7 @@ export class AppBar extends Component {
         return (
             <MuiAppBar color="primary" position="static" key="appbar">
                 <Toolbar>
-                    <TypoGraphy variant="title"
+                    <TypoGraphy
                         color="inherit"
                     >
                         Agrochemical

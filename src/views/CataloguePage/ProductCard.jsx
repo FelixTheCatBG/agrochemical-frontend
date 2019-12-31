@@ -45,7 +45,7 @@ export class ProductCard extends Component {
                             title={product.name}
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
+                            <Typography gutterBottom >
                                 {product.name}
                             </Typography>
                             <Typography noWrap component="p">{product.description}</Typography>
