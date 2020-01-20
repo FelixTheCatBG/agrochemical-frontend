@@ -30,12 +30,21 @@ const theme = createMuiTheme({
                 minHeight: 75
             }
 
+        },
+        MuiListItem: {
+            root: {
+                // '& :hover': {
+                //     backgroundColor: "#37b44e"
+                // }
+            }
+        },
+        MuiButton: {
+            root: {
+                '&:hover': {
+                    backgroundColor: "#37b44e"
+                }
+            }
         }
-        // MuiButton: {
-        //     root: {
-        //         color: scaleUpTextColor
-        //     }
-        // },
         // MuiTableCell: {
         //     body: {
         //         color: scaleUpTextColor
