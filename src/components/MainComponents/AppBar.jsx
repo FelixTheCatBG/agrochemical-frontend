@@ -62,38 +62,6 @@ export class AppBar extends Component {
                     >
                         Agrochemical
                     </TypoGraphy>
-                    {/* /U can find list here */}
-                    <div>
-                        {/* <List component="nav">
-                        <ListItem component="div">
-                            <ListItemText className="itemBox" inset>
-                                <TypoGraphy className={classes.itemBox} color="inherit" variant="title">
-                                    <Link to="/" className="nav-item nav-link">Home</Link>
-                                </TypoGraphy>
-                            </ListItemText>
-
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title">
-                                    <NavLink to="/catalogue" className="nav-item nav-link">Catalogue</NavLink>
-                                </TypoGraphy>
-                            </ListItemText>
-
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title">
-                                    <NavLink to="/diagnoser" className="nav-item nav-link">Diagnoser</NavLink>
-                                </TypoGraphy>
-                            </ListItemText>
-
-                            <ListItemText inset>
-                                <TypoGraphy color="inherit" variant="title">
-                                    {isAdmin && <Link to="/admin" className="nav-item nav-link">Admin</Link>}
-                                    {currentUser && <a onClick={this.logout} className="nav-item nav-link">Logout</a>}
-                                </TypoGraphy>
-                            </ListItemText>
-                        </ListItem>
-                    </List> */}
-                    </div>
-
                     <span className={classes.buttonsBar}>
                         <Tabs
                             value={value}
@@ -104,8 +72,9 @@ export class AppBar extends Component {
                             <Tab className={classes.hoverTab} label="About" component={Link} to="/about" />
                             <Tab className={classes.hoverTab} label="Catalogue" component={Link} to="/catalogue" />
                             <Tab className={classes.hoverTab} label="Diagnoser" component={Link} to="/diagnoser" />
+                            <Tab className={classes.hoverTab} label="Diseases" component={Link} to="/diseases" />
                             <Tab className={classes.hoverTab} label="Contacts" component={Link} to="/contacts" />
-                            {this.props.isAdmin && <Tab label="Admin" component={Link} to="/admin" />}
+                            {this.props.isAdmin && <Tab className={classes.hoverTab} label="Admin" component={Link} to="/admin" />}
                             {currentUser && <a onClick={this.props.logout} className="nav-item nav-link">Logout</a>}
                         </Tabs>
                     </span>

@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import GridItem from '../../components/Grid/GridItem';
 import ProductDetailsModal from "./ProductDetailsModal";
+import backgroundImage from "../../assets/img/11.jpg";
 
 export class ProductCard extends Component {
     constructor (props) {
@@ -40,22 +41,18 @@ export class ProductCard extends Component {
                         <CardMedia
                             component="img"
                             alt={product.name}
-                            /* { image={post.image} }*/
-                            height="140"
+                            image={backgroundImage}
+                            height="200"
                             title={product.name}
                         />
                         <CardContent>
-                            <Typography gutterBottom >
-                                {product.name}
-                            </Typography>
+                            <h3>{product.name}</h3>
                             <Typography noWrap component="p">{product.description}</Typography>
+                            <Typography component="p">Price: </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
                         <Button onClick={this.handleDetailsDialogOpen} size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
                             Learn More
                         </Button>
                     </CardActions>

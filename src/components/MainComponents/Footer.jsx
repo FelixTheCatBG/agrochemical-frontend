@@ -3,11 +3,14 @@ import GridItem from '../../components/Grid/GridItem';
 import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
 
+import { Typography } from "@material-ui/core";
+
 const useStyles = theme => ({
     root: {
         backgroundColor: "#37b44e",
         color: "white",
-        marginBottom: 0
+        marginBottom: 0,
+        paddingTop: 30
     },
     bigIndicator: {
         height: 5
@@ -53,12 +56,16 @@ export class Footer extends Component {
             <div className={classes.root}>
                 <GridContainer>
                     <GridItem xs={12} sm={4}>
-                        <h2>Heading</h2>
+                        <Typography variant="h4" className={classes.title} component="h4">
+                            Heading
+                        </Typography>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
                     </GridItem>
                     <GridItem xs={12} sm={4}>
                         <div className={classes.links}>
-                            <h4 >Links</h4>
+                            <Typography variant="h4" className={classes.title} component="h4">
+                                Links
+                            </Typography>
                             <ul>
                                 <li>- <a href="#">Lorem ipsum</a></li>
                                 <li>- <a href="#">Nam mauris velit</a></li>
@@ -71,7 +78,9 @@ export class Footer extends Component {
                     </GridItem>
                     <GridItem xs={12} sm={4}>
                         <div className={classes.location}>
-                            <h4 >Location</h4>
+                            <Typography variant="h4" className={classes.title} component="h4">
+                                Location
+                            </Typography>
                             <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
                             <p ><i ></i>(541) 754-3010</p>
                             <p><i ></i>info@hsdf.com</p>

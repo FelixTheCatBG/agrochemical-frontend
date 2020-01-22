@@ -5,9 +5,6 @@ import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
 import backgroundImage from "../../assets/img/homeBackground.jpeg";
 // import backgroundImage2 from "../../assets/img/homeBackground2.jpeg";
-import { Typography } from "@material-ui/core";
-import { Button } from "@material-ui/core";
-import OurServices from "./OurServices";
 
 const useStyles = theme => ({
     // root: {
@@ -35,38 +32,16 @@ const useStyles = theme => ({
     }
 });
 
-export class HomePage extends Component {
+export class DiseasesPage extends Component {
     render () {
         const { classes } = this.props;
 
         return (
             <GridContainer>
-                <div className={classes.firstHeader}>
-                    <GridContainer>
-                        <GridItem xs={12}>
-                            <div style={{ padding: 50 }}>
-                                <h1>Agrochemical is company about... </h1>
-                                <p>Some information about the company paragraph</p>
-                            </div>
-                        </GridItem>
-                        {/* <GridItem xs={4}>
-                            <Paper className={classes.paper}>Call to action</Paper>
-                        </GridItem> */}
-                    </GridContainer>
-                </div>
                 <div className={classes.callToActionBox}>
                     <GridContainer>
                         <GridItem xs={8}>
-                            <Typography className={classes.paper}>Go and checkout our products</Typography>
-                        </GridItem>
-                        <GridItem xs={4}>
-                            <Button
-                                variant="contained"
-                                size="large"
-                                color="secondary"
-                                onClick={this.handleNext}
-                                className={classes.button}
-                            > Call To Action Box</Button>
+                            <h1 className={classes.productsHeader}>Diseases</h1>
                         </GridItem>
                     </GridContainer>
                 </div>
@@ -91,10 +66,9 @@ export class HomePage extends Component {
                 <GridItem xs={3}>
                     <Paper className={classes.paper}>xs=3</Paper>
                 </GridItem>
-                <OurServices />
             </GridContainer>
         );
     }
 }
 
-export default withStyles(useStyles)(HomePage);
+export default withStyles(useStyles)(DiseasesPage);

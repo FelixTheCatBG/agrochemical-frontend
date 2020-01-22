@@ -16,27 +16,6 @@ import ProductCard from "./ProductCard";
 import AgroLoader from "../../components/Shared/AgroLoader";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-// const posts = [
-
-//     {
-//         title: "My first post",
-//         excerpt: "This is my first post with more content inside",
-//         image: "https://bit.ly/2WNi2Ml"
-//     },
-
-//     {
-//         title: "My second post",
-//         excerpt: "This is my second post with more content inside",
-//         image: "https://bit.ly/2WNi2Ml"
-//     },
-
-//     {
-//         title: "My third post",
-//         excerpt: "This is my third post with more content inside",
-//         image: "https://bit.ly/2WNi2Ml"
-//     }
-// ];
-
 const useStyles = theme => ({
     // root: {
     //     flexGrow: 1
@@ -44,9 +23,19 @@ const useStyles = theme => ({
     active: {
         backgroundColor: "#37b44e",
         color: "#fff"
+    },
+    sidenav: {
+
+    },
+    productsHeader: {
+        paddingLeft: 10,
+        paddingTop: 15
+    },
+    callToActionBox: {
+        backgroundColor: "#37b44e",
+        padding: 30
     }
 });
-
 
 class CataloguePage extends Component {
     state = {
@@ -72,12 +61,6 @@ class CataloguePage extends Component {
                 });
             });
 
-        productService.getProduct(2)
-            .then((res) => {
-                this.setState({
-                    product: res
-                });
-            });
     }
 
     renderProductCard = product => {
@@ -113,48 +96,58 @@ class CataloguePage extends Component {
         const { classes } = this.props;
 
         return (
-            <GridContainer style={{ minHeight: 600 }}>
+            <React.Fragment>
+                <div className={classes.callToActionBox}>
+                    <GridContainer>
+                        <GridItem xs={8}>
+                            <h1 className={classes.productsHeader}>Products</h1>
+                        </GridItem>
 
-                <GridItem xs={12} sm={3}>
-                    <List style={{ marginTop: 30 }} component="nav" aria-label="main mailbox folders">
-                        <ListItem className={this.state.filterByType === "Pesticide" ? classes.active : null} button onClick={() => this.changeFilter("Pesticide")}>
-                            {/* <ListItemIcon>
+                    </GridContainer>
+                </div>
+                <GridContainer style={{ minHeight: 600 }}>
+                    <GridItem xs={12} sm={3}>
+                        <List style={{ marginTop: 10 }} className={classes.sidenav} component="nav" aria-label="sidenav">
+                            <ListItem className={` ${this.state.filterByType === "Pesticide" ? classes.active : null} ${classes.onHover}`} button onClick={() => this.changeFilter("Pesticide")}>
+                                {/* <ListItemIcon>
                                 <InboxIcon />
                             </ListItemIcon> */}
-                            <ListItemText primary="Pesticides" />
-                        </ListItem>
-                        <ListItem className={this.state.filterByType === "Insecticide" ? classes.active : null} button onClick={() => this.changeFilter("Insecticide")}>
-                            {/* <ListItemIcon>
+                                <ListItemText primary="Pesticides" />
+                            </ListItem>
+                            <ListItem className={` ${this.state.filterByType === "Insecticide" ? classes.active : null} ${classes.onHover}`} button onClick={() => this.changeFilter("Insecticide")}>
+                                {/* <ListItemIcon>
                                 <DraftsIcon />
                             </ListItemIcon> */}
-                            <ListItemText primary="Insecticide" />
-                        </ListItem>
-                        <ListItem className={this.state.filterByType === "Fungicides" ? classes.active : null} button onClick={() => this.changeFilter("Fungicides")}>
-                            {/* <ListItemIcon>
+                                <ListItemText primary="Insecticide" />
+                            </ListItem>
+                            <ListItem className={` ${this.state.filterByType === "Fungicides" ? classes.active : null} ${classes.onHover}`} button onClick={() => this.changeFilter("Fungicides")}>
+                                {/* <ListItemIcon>
                                 <DraftsIcon />
                             </ListItemIcon> */}
-                            <ListItemText primary="Third" />
-                        </ListItem>
-                    </List>
-                    <Divider />
-                </GridItem>
+                                <ListItemText primary="Third" />
+                            </ListItem>
+                        </List>
+                        <Divider />
+                    </GridItem>
 
-                <GridItem xs={12} sm={9}>
-                    <GridContainer body>
-                        {/* {this.state.products && this.state.products
+                    <GridItem xs={12} sm={9}>
+
+                        <GridContainer body>
+                            {/* {this.state.products && this.state.products
                             .filter(product => product.category === this.state.filterByType)
                             .map(product => this.renderProductCard(product))
                         } */}
-                        {!this.state.isLoading ?
-                            this.state.products && this.state.products
-                                .filter(product => product.category === this.state.filterByType)
-                                .map(product => <ProductCard product={product} />)
-                            : <AgroLoader />
-                        }
-                    </GridContainer>
 
-                </GridItem>
-                {/* {
+                            {!this.state.isLoading ?
+                                this.state.products && this.state.products
+                                    .filter(product => product.category === this.state.filterByType)
+                                    .map(product => <ProductCard product={product} />)
+                                : <AgroLoader />
+                            }
+                        </GridContainer>
+
+                    </GridItem>
+                    {/* {
                     posts.map(post => (
                         <GridItem key={post.title} xs={12} sm={4}>
                             <Card>
@@ -187,37 +180,39 @@ class CataloguePage extends Component {
                 } */}
 
 
-                {this.state.products && this.state.products.map(product => (
-                    <GridItem style={{ marginTop: 20 }} key={product.id} xs={12} sm={4}>
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    alt={product.name}
-                                    height="140"
+                    {
+                        this.state.products && this.state.products.map(product => (
+                            <GridItem style={{ marginTop: 20 }} key={product.id} xs={12} sm={4}>
+                                <Card>
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            alt={product.name}
+                                            height="140"
 
-                                    title={product.name}
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom >
-                                        {product.name}
-                                    </Typography>
-                                    <Typography component="p">{product.description}</Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button size="small" color="primary">
-                                    Share
-                                </Button>
-                                <Button size="small" color="primary">
-                                    Learn More
-                                </Button>
-                            </CardActions>
-                        </Card>
-                    </GridItem>
-                ))}
-            </GridContainer>
-
+                                            title={product.name}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom >
+                                                {product.name}
+                                            </Typography>
+                                            <Typography component="p">{product.description}</Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                    <CardActions>
+                                        <Button size="small" color="primary">
+                                            Share
+                                        </Button>
+                                        <Button size="small" color="primary">
+                                            Learn More
+                                        </Button>
+                                    </CardActions>
+                                </Card>
+                            </GridItem>
+                        ))
+                    }
+                </GridContainer>
+            </React.Fragment>
         );
     }
 }
