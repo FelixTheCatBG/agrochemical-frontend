@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from '../utils/axios';
 const baseUrl = 'https://localhost:44359';
 
 const welcomeNotesService = {
 
     getAllCrops: () => {
         return axios
-            .get(`${baseUrl}/api/product`)
+            .get(`${baseUrl}/api/crop`)
             .then(response => {
                 console.log(response);
 
@@ -15,9 +15,7 @@ const welcomeNotesService = {
                 throw error;
             });
     },
-
     getProduct: productId => {
-
         return axios
             .get(`${baseUrl}/api/crop/${productId}`)
             .then(response => {
@@ -28,7 +26,6 @@ const welcomeNotesService = {
             .catch(error => {
                 throw error;
             });
-
     },
     getAllCategories: () => {
         return axios
@@ -41,46 +38,7 @@ const welcomeNotesService = {
             .catch(error => {
                 throw error;
             });
-
-    },
-    saveProduct: product => {
-
-        return axios.post(`${baseUrl}/product`, product)
-            .then(response => {
-                return response.data;
-            })
-            .catch(error => {
-                throw error;
-            });
-
-    },
-
-    editProduct: (productId, product) => {
-
-        return axios
-            .put(`${baseUrl}/product/${productId}`, product)
-            .then(response => {
-                return response;
-            })
-            .catch(error => {
-                throw error;
-            });
-
-    },
-
-    deleteNote: productId => {
-
-        return axios
-            .delete(`${baseUrl}/product/${productId}`)
-            .then(response => {
-                return response;
-            })
-            .catch(error => {
-                throw error;
-            });
-
     }
-
 };
 
 export default welcomeNotesService;

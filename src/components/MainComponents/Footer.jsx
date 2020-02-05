@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import GridItem from '../../components/Grid/GridItem';
 import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
-
-import { Typography } from "@material-ui/core";
+import { Link, Typography } from '@material-ui/core';
+import logo from "../../assets/img/AgrochemicalLogo.png";
 
 const useStyles = theme => ({
     root: {
-        backgroundColor: "#37b44e",
+        backgroundColor: "#d88e16",
         color: "white",
         marginBottom: 0,
         paddingTop: 30
@@ -25,6 +25,7 @@ const useStyles = theme => ({
         "& ul": {
             paddingLeft: 0,
             listStyleType: "none"
+
         },
         "& li a": {
             color: "white",
@@ -33,6 +34,14 @@ const useStyles = theme => ({
                 color: "#4180CB"
             }
         }
+    },
+    logo: {
+        width: "100%",
+        maxWidth: 250,
+        height: "auto"
+    },
+    link: {
+        paddingBottom: "5px"
     },
     copyright: {
         "& p": {
@@ -50,16 +59,13 @@ export class Footer extends Component {
 
     render () {
         const { classes } = this.props;
-        // const { value } = this.state;
 
         return (
             <div className={classes.root}>
                 <GridContainer>
                     <GridItem xs={12} sm={4}>
-                        <Typography variant="h4" className={classes.title} component="h4">
-                            Heading
-                        </Typography>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
+                        <img src={logo} alt="logo" className={classes.logo} />
+                        <p>Agrochemical is national leader in plant protection products.</p>
                     </GridItem>
                     <GridItem xs={12} sm={4}>
                         <div className={classes.links}>
@@ -67,28 +73,34 @@ export class Footer extends Component {
                                 Links
                             </Typography>
                             <ul>
-                                <li>- <a href="#">Lorem ipsum</a></li>
-                                <li>- <a href="#">Nam mauris velit</a></li>
-                                <li>- <a href="#">Etiam vitae mauris</a></li>
-                                <li>- <a href="#">Fusce scelerisque</a></li>
-                                <li>- <a href="#">Sed faucibus</a></li>
-                                <li>- <a href="#">Mauris efficitur nulla</a></li>
+                                <li className={classes.link}><Link component="a"
+                                    href="/">Home</Link></li>
+                                <li className={classes.link}><Link component="a"
+                                    href="/about">About Us</Link></li>
+                                <li className={classes.link}><Link component="a"
+                                    href="/catalogue">Products</Link></li>
+                                <li className={classes.link}><Link component="a"
+                                    href="/diagnoser">Diagnoser</Link></li>
+                                <li className={classes.link}><Link component="a"
+                                    href="/diseases">Diseases</Link></li>
+                                <li className={classes.link}><Link component="a"
+                                    href="/contacts">Contact Us</Link></li>
                             </ul>
                         </div>
                     </GridItem>
                     <GridItem xs={12} sm={4}>
-                        <div className={classes.location}>
+                        <div className={classes.contacts}>
                             <Typography variant="h4" className={classes.title} component="h4">
-                                Location
+                                Contacts
                             </Typography>
-                            <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-                            <p ><i ></i>(541) 754-3010</p>
-                            <p><i ></i>info@hsdf.com</p>
+                            <p>Plovdiv 4004, <br></br>Komatevska str. 73</p>
+                            <p ><i ></i>032/ 69 00 29</p>
+                            <p><i ></i>agrochemical2000@gmail.com</p>
                         </div>
                     </GridItem>
                     <GridItem xs={12} >
                         <div className={classes.copyright}>
-                            <p ><small >© 2019. All Rights Reserved.</small></p>
+                            <p><small >Copyright © 2020 Agrochemical. All right reserved.</small></p>
                         </div>
                     </GridItem>
                 </GridContainer>

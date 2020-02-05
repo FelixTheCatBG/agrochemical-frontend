@@ -1,17 +1,14 @@
 import React from 'react';
-// import Paper from '@material-ui/core/Paper';
-// import { MobileStepper } from '@material-ui/core';
-// import GridContainer from '../../components/Grid/GridContainer';
 import { withStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Introduction from "../../components/MultiStepForm/Introduction";
-import CropTypePicker from "../../components/MultiStepForm/CropTypePicker";
-import SymptomsPicker from "../../components/MultiStepForm/SymptomsPicker";
-import PossibleIllnesses from "../../components/MultiStepForm/PossibleIllnesses";
+import Introduction from "./MultiStepForm/Introduction";
+import CropTypePicker from "./MultiStepForm/CropTypePicker";
+import SymptomsPicker from "./MultiStepForm/SymptomsPicker";
+import PossibleIllnesses from "./MultiStepForm/PossibleIllnesses";
 import GridContainer from '../../components/Grid/GridContainer';
 
 const useStyles = theme => ({
@@ -75,13 +72,14 @@ export class DiagnoserPage extends React.Component {
     //     return skipped.has(step);
     // };
 
-    handleNext = () => {
+    handleNext = (e) => {
         // let newSkipped = skipped;
 
         // if (isStepSkipped(activeStep)) {
         //     newSkipped = new Set(newSkipped.values());
         //     newSkipped.delete(activeStep);
         // }
+        e.preventDefault();
 
         this.setState({
             activeStep: this.state.activeStep + 1
@@ -144,19 +142,6 @@ export class DiagnoserPage extends React.Component {
         return (
             <GridContainer body>
                 <div className={classes.root} >
-                    <Stepper style={{ margin: 30, marginTop: 40 }} activeStep={activeStep}>
-                        {steps.map((label, index) => {
-                            const stepProps = {};
-                            const labelProps = {};
-
-                            return (
-                                <Step key={label} {...stepProps}>
-                                    <StepLabel {...labelProps}>{label}</StepLabel>
-                                </Step>
-                            );
-                        })}
-                    </Stepper>
-
                     <div>
                         {activeStep === steps.length ? (
                             <div>
@@ -169,6 +154,19 @@ export class DiagnoserPage extends React.Component {
                             </div>
                         ) : (
                             <div className={classes.stepperBox}>
+                                <Stepper style={{ margin: 30, marginTop: 40 }} activeStep={activeStep}>
+                                    {steps.map((label, index) => {
+                                        const stepProps = {};
+                                        const labelProps = {};
+
+                                        return (
+                                            <Step key={label} {...stepProps}>
+                                                <StepLabel {...labelProps}>{label}</StepLabel>
+                                            </Step>
+                                        );
+                                    })}
+                                </Stepper>
+
                                 <Typography className={classes.instructions}>
 
                                     {this.getStepContent(activeStep)}

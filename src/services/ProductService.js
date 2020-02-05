@@ -1,5 +1,7 @@
-import axios from 'axios';
-const baseUrl = 'https://localhost:44359';
+import axios from '../utils/axios';
+import { settings } from '../utils/settings';
+
+const baseUrl = settings.BASE_URL;
 
 const welcomeNotesService = {
 
@@ -29,7 +31,7 @@ const welcomeNotesService = {
                 throw error;
             });
 
-    },
+    }
     // getActiveNote: () => {
 
     //     return axios
@@ -44,43 +46,6 @@ const welcomeNotesService = {
     //         });
 
     // },
-    saveProduct: product => {
-
-        return axios.post(`${baseUrl}/product`, product)
-            .then(response => {
-                return response.data;
-            })
-            .catch(error => {
-                throw error;
-            });
-
-    },
-
-    editProduct: (productId, product) => {
-
-        return axios
-            .put(`${baseUrl}/product/${productId}`, product)
-            .then(response => {
-                return response;
-            })
-            .catch(error => {
-                throw error;
-            });
-
-    },
-
-    deleteNote: productId => {
-
-        return axios
-            .delete(`${baseUrl}/product/${productId}`)
-            .then(response => {
-                return response;
-            })
-            .catch(error => {
-                throw error;
-            });
-
-    }
 
 };
 

@@ -7,10 +7,10 @@ const theme = createMuiTheme({
     palette: {
         type: 'light',
         primary: {
-            main: '#37b44e'
+            main: '#d88e16'
         },
         secondary: {
-            main: '#ff8829'
+            main: '#37b44e'
         }
     },
     MuiTab: {

@@ -1,7 +1,10 @@
 body {
     // background-color:#0f541c;
-    background-color:white;
+    background-color:#ccc;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.mainContainer {
+   box-shadow: 2px 16px 17px 1px rgba(0,0,0,0.2), 2px 16px 16px 2px rgba(0,0,0,0.14), 2px 20px 24px 2px rgba(0,0,0,0.12)
 }
 div.storeContainer{
     box-sizing: border-box;
@@ -23,7 +26,7 @@ div.storeCardContainer{
     vertical-align: top;
 }
 div.storeCardPaper{
-    height: 300px;
+    height: auto;
     width: 100%;
     box-sizing: border-box;
     border-radius: 6px;
@@ -35,7 +38,7 @@ div.productPicturesSection{
 div.productInfoSection{
     width: 50%;
     display: inline-block;
-    padding: 30px 30px 30px 0;
+    padding: 0px 30px 30px 0;
     box-sizing: border-box;
     vertical-align: top;
     height: 100%;
@@ -130,9 +133,8 @@ div.productButtonContainer{
 div.productPicturesSection{
     width: 50%;
     display: inline-block;
-    padding: 30px;
-    box-sizing: border-box;
-    height: 100%;
+    padding: 0px 30px 30px 30px;
+    box-sizing: border-box;  
 }
 button.productButton{
     width: 100%;
@@ -148,34 +150,6 @@ button.productButton.close{
     margin: 0 auto;
     display: inherit;
 }
-// button.productButton.getNow:hover, button.productButton.close:hover{
-//     background-color: $scaleUpActionHover
-// }
-// button.productButton.getNow:active, button.productButton.close:active{
-//     background-color: $scaleUpActionActive
-// }
-// button.productButton.getNow{
-//     background-color: $scaleUpTurquoise;
-//     color: $scaleUpWhite;
-// }
-// button.productButton.inactive{
-//     background-color: $scaleUpLightgray;
-//     color: $scaleUpTextColor;
-// }
-// button.productButton.details{
-//     background-color: $scaleUpWhite;
-//     color: $scaleUpTurquoise;
-//     border: 1px solid $scaleUpTurquoise;
-// }
-// button.productButton.details:hover{
-//     border-color: $scaleUpActionHover;
-//     color: $scaleUpActionHover;
-// }
-// button.productButton.details:active{
-//     border-color:  $scaleUpActionActive;
-//     color: $scaleUpActionActive;
-// }
-
 div.thumbnailPicture{
     display: inline-block;
     width: 33.33%;
@@ -202,18 +176,18 @@ span.thumbnailPaper img{
 }
 div.productDetailsModal{
     div.storeCardContainer{
-        width: 900px;
+        width: auto;
         display: block;
         margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // -ms-transform: translate(-50%, -50%);
+        // transform: translate(-50%, -50%);
     }
     div.storeCardPaper{
         border: none;
-        height: 540px;
+        min-height: 300px;
     }
     div.productName{
         font-size: 31px;
@@ -286,7 +260,7 @@ div.productDetailsModal{
 div.productDetailsModal > div > div{
     width: 100%;
     height: 100%;
-    max-width: none;
+    max-width: 900px;
 }
 
 div.sortContainer{
@@ -313,19 +287,6 @@ div.sortProductOption{
     line-height: 40px;
     padding: 0 20px
 }
-// div.sortProductOption:hover{
-//     background-color: $scaleUpTurquoise;
-//     color: $scaleUpWhite;
-// }
-// div.sortProductOption:active{
-//     background-color: $scaleUpActionActive;
-//     color: $scaleUpWhite;
-// }
-// div.sortProductOption.chosen{
-//     background-color: $scaleUpWhite;
-//     color: $scaleUpTurquoise;
-//     pointer-events: none
-// }
 img.cursorOnHover {
     cursor:pointer;
 }
@@ -351,8 +312,6 @@ label.sortSelectLabel{
     font-size: 12px;
     font-weight: 600;
 }
-
-
 
 @media (max-width: 2200px){
     div.storeCardContainer{
@@ -487,3 +446,75 @@ label.sortSelectLabel{
         margin-bottom: 25px;
     }
 }
+.modalProductImage {
+    width: 100%;
+    height: auto
+}
+
+.storeCardProductHeaderDiv {
+    font-size: 24px;
+    color: #d88e16;
+    margin-top: 0px !important;
+}
+.storeCardProductHeaderDiv.h2 {
+    margin-top: 0px !important;
+}
+//Clients
+#our-clients {
+    margin: 0 auto;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .client-item {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  //Services
+  #our-services {
+    margin: 0 auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 4rem;
+  }
+  
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .service-item-title {
+    padding-bottom: 0.9rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align:center;
+  }
+  
+  .service-item-description {
+    font-weight: 400;
+    opacity: 0.6;
+    align-self: flex-end;
+    text-align: center;
+    line-height: 1.4rem;
+  }
+  
+  .icon-container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin-bottom:15px;
+  }
+  
+  .media-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    text-align:center;
+  }

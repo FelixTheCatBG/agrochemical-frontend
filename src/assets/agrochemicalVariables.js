@@ -1,38 +1,38 @@
 //Base Colors
-const scaleUpTurquoise = "#36d1dc";
-const scaleUpTurquoiseHover = "#1EA0AA";
-const scaleUpTurquoiseActive = "#187880";
-const scaleUpOrange = "#ffb760";
-const scaleUpPurple = "#5c91cc";
-const scaleUpBlue = "#5eccf5";
-const scaleUpGreen = "#5bd3b7";
-const scaleUpBackground = "#f4f5f7";
+const agroTurquoise = "#36d1dc";
+const agroTurquoiseHover = "#1EA0AA";
+const agroTurquoiseActive = "#187880";
+const agroOrange = "#ffb760";
+const agroPurple = "#5c91cc";
+const agroBlue = "#5eccf5";
+const agroGreen = "#5bd3b7";
+const agroBackground = "#f4f5f7";
 const iconColor = "#686868";
 const upsAmountColor = "#afb6c0";
-const scaleUpWhite = "#FFFFFF";
-const scaleUpTextColor = "#676c7b";
-const scaleUpBlack = "#000000";
-const scaleUpGrey = "#676c7b";
-const scaleUpLightgray = "#cecece";
-const scaleUpDateHolder = "#929495";
-const scaleUpLightBlue = "#b0dff4";
-const scaleUpHoverColor = "#45b4c2";
-const scaleUpHoverLinkColor = "#5f99d1";
-const scaleUpReceiverHover = "#36d1dc";
+const agroWhite = "#FFFFFF";
+const agroTextColor = "#676c7b";
+const agroBlack = "#000000";
+const agroGrey = "#676c7b";
+const agroLightgray = "#cecece";
+const agroDateHolder = "#929495";
+const agroLightBlue = "#b0dff4";
+const agroHoverColor = "#45b4c2";
+const agroHoverLinkColor = "#5f99d1";
+const agroReceiverHover = "#36d1dc";
 const rateUpButtonInactive = "#c0c0c0";
-const scaleUpDarkOrange = "#ffa83f";
-const scaleUpLightGreen = "#5bd1b5";
-const scaleUpDividerColor = "#e0e0e0";
-const scaleUpDarkerTextColor = "#5d5b69";
-const scaleUpPeerToPeerColor = "#5bd3b7";
-const scaleUpBrandAmbassadorColor = "#5F7DEA";
-const scaleUpLineManagerColor = "#F59A22";
-const scaleUpButtonPressedColor = "#187880";
-const scaleUpRankingAvatarGray = "#ebecee";
-const scaleUpLightRed = '#FF8A8A';
-const scaleUpProductListDetails = '#A4AFB7';
-const scaleUpBorderColorLight = '#DCDFE8';
-const scaleUpActionHover = '#1EA0AA';
+const agroDarkOrange = "#ffa83f";
+const agroLightGreen = "#5bd1b5";
+const agroDividerColor = "#e0e0e0";
+const agroDarkerTextColor = "#5d5b69";
+const agroPeerToPeerColor = "#5bd3b7";
+const agroBrandAmbassadorColor = "#5F7DEA";
+const agroLineManagerColor = "#F59A22";
+const agroButtonPressedColor = "#187880";
+const agroRankingAvatarGray = "#ebecee";
+const agroLightRed = '#FF8A8A';
+const agroProductListDetails = '#A4AFB7';
+const agroBorderColorLight = '#DCDFE8';
+const agroActionHover = '#1EA0AA';
 const statusColors = {
     inProcess: "#5BD2B7",
     pending: "#F49921",
@@ -50,43 +50,43 @@ const iconOnTitle = "24px";
 const fontWeightBold = "600";
 
 export {
-    scaleUpDividerColor,
+    agroDividerColor,
     titleFontsize,
     iconOnTitle,
     fontWeightBold,
-    scaleUpLightBlue,
-    scaleUpTurquoise,
-    scaleUpOrange,
-    scaleUpLightGreen,
-    scaleUpDarkOrange,
-    scaleUpPurple,
-    scaleUpBlue,
-    scaleUpGreen,
-    scaleUpBackground,
+    agroLightBlue,
+    agroTurquoise,
+    agroOrange,
+    agroLightGreen,
+    agroDarkOrange,
+    agroPurple,
+    agroBlue,
+    agroGreen,
+    agroBackground,
     iconColor,
     upsAmountColor,
-    scaleUpWhite,
-    scaleUpTextColor,
-    scaleUpBlack,
-    scaleUpGrey,
-    scaleUpLightgray,
-    scaleUpDateHolder,
-    scaleUpHoverColor,
-    scaleUpHoverLinkColor,
-    scaleUpReceiverHover,
+    agroWhite,
+    agroTextColor,
+    agroBlack,
+    agroGrey,
+    agroLightgray,
+    agroDateHolder,
+    agroHoverColor,
+    agroHoverLinkColor,
+    agroReceiverHover,
     rateUpButtonInactive,
-    scaleUpDarkerTextColor,
-    scaleUpPeerToPeerColor,
-    scaleUpBrandAmbassadorColor,
-    scaleUpLineManagerColor,
-    scaleUpButtonPressedColor,
-    scaleUpRankingAvatarGray,
-    scaleUpLightRed,
-    scaleUpProductListDetails,
-    scaleUpBorderColorLight,
-    scaleUpActionHover,
-    scaleUpTurquoiseHover,
-    scaleUpTurquoiseActive,
+    agroDarkerTextColor,
+    agroPeerToPeerColor,
+    agroBrandAmbassadorColor,
+    agroLineManagerColor,
+    agroButtonPressedColor,
+    agroRankingAvatarGray,
+    agroLightRed,
+    agroProductListDetails,
+    agroBorderColorLight,
+    agroActionHover,
+    agroTurquoiseHover,
+    agroTurquoiseActive,
     statusColors
 };
 
