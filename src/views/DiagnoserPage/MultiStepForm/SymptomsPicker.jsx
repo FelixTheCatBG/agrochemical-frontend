@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-// import Paper from '@material-ui/core/Paper';
-import GridItem from '../../components/Grid/GridItem';
-// import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
-import symptomService from "../../services/SymptomService";
-import GridContainer from '../Grid/GridContainer';
+import symptomService from "../../../services/SymptomService";
+import GridContainer from "../../../components/Grid/GridContainer";
+import GridItem from "../../../components/Grid/GridItem";
 import Chip from '@material-ui/core/Chip';
-
 
 const useStyles = theme => ({
     bigIndicator: {
@@ -24,16 +21,6 @@ const useStyles = theme => ({
 });
 
 export class SymptomsPicker extends Component {
-    // saveAndContinue = (e) => {
-    //     e.preventDefault();
-    //     this.props.nextStep();
-    // }
-
-    // back = (e) => {
-    //     e.preventDefault();
-    //     this.props.prevStep();
-    // }
-
     state = {
         symptoms: [],
         pickedSymptoms: []

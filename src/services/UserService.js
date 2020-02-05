@@ -1,6 +1,8 @@
 import { authHeader, handleResponse } from '../utils';
 
-const baseUrl = 'https://localhost:44359';
+import { settings } from '../utils/settings';
+
+const baseUrl = settings.BASE_URL;
 
 function getAll () {
     const requestOptions = { method: 'GET', headers: authHeader() };

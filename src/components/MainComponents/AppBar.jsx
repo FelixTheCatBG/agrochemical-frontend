@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-// import Navbar from "./components/MainComponents/Navbar";
 import { MenuItem } from "@material-ui/core";
 import ButtonAppBarCollapse from "./NavbarCollapse";
 import { Link } from 'react-router-dom';
 import MuiAppBar from '@material-ui/core/AppBar';
-// import { NavLink } from "react-router-dom";
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemText from '@material-ui/core/ListItemText';
-import TypoGraphy from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import withStyles from "@material-ui/core/styles/withStyles";
+
+import logo from "../../assets/img/AgrochemicalLogo.png";
 
 const useStyles = theme => ({
     collapseMenu: {
@@ -23,7 +19,6 @@ const useStyles = theme => ({
     },
     bigIndicator: {
         height: 3
-        //  marginBottom: 5
     },
     buttonsBar: {
         [theme.breakpoints.down("xs")]: {
@@ -34,11 +29,16 @@ const useStyles = theme => ({
         color: "white"
     },
     hoverTab: {
+        minWidth: "120px !important",
         "&:hover": {
             backgroundColor: "#eeee"
         }
+    },
+    logo: {
+        maxWidth: "200px",
+        position: "absolute",
+        zIndex: "100"
     }
-
 });
 
 export class AppBar extends Component {
@@ -46,7 +46,6 @@ export class AppBar extends Component {
 
     handleChange = (event, value) => {
         this.setState({ value });
-        console.log(this.props.isAdmin);
     };
 
     render () {
@@ -57,16 +56,13 @@ export class AppBar extends Component {
         return (
             <MuiAppBar color="primary" position="static" key="appbar">
                 <Toolbar>
-                    <TypoGraphy
-                        color="inherit"
-                    >
-                        Agrochemical
-                    </TypoGraphy>
+                    <img src={logo} alt="logo" className={classes.logo} />
                     <span className={classes.buttonsBar}>
                         <Tabs
                             value={value}
                             classes={{ indicator: classes.bigIndicator }}
                             onChange={this.handleChange}
+                            aria-label="tabs"
                         >
                             <Tab className={classes.hoverTab} label="Home" component={Link} to="/" />
                             <Tab className={classes.hoverTab} label="About" component={Link} to="/about" />
@@ -80,8 +76,24 @@ export class AppBar extends Component {
                     </span>
                     <span className={classes.collapseMenu}>
                         <ButtonAppBarCollapse>
-                            <MenuItem>Login</MenuItem>
-                            <MenuItem>Signup</MenuItem>
+                            <Link to='/' style={{ textDecoration: 'none', color: "#333" }}>
+                                <MenuItem >Home</MenuItem>
+                            </Link>
+                            <Link to='/about' style={{ textDecoration: 'none', color: "#333" }}>
+                                <MenuItem >About</MenuItem>
+                            </Link>
+                            <Link to='/catalogue' style={{ textDecoration: 'none', color: "#333" }}>
+                                <MenuItem >Catalogue</MenuItem>
+                            </Link>
+                            <Link to='/Diagnose' style={{ textDecoration: 'none', color: "#333" }}>
+                                <MenuItem >Diagnose</MenuItem>
+                            </Link>
+                            <Link to='/Diseases' style={{ textDecoration: 'none', color: "#333" }}>
+                                <MenuItem >Diseases</MenuItem>
+                            </Link>
+                            <Link to='/Contacts' style={{ textDecoration: 'none', color: "#333" }}>
+                                <MenuItem >Contacts</MenuItem>
+                            </Link>
                         </ButtonAppBarCollapse>
                     </span>
                 </Toolbar>

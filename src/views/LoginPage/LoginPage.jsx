@@ -10,7 +10,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { authenticationService } from "../../services";
-
 import AgroLoader from "../../components/Shared/AgroLoader";
 import AgroSnackbar from "../../components/Shared/AgroSnackbar";
 import GridContainer from "../../components/Grid/GridContainer";
@@ -34,7 +33,9 @@ class LoginPage extends React.Component {
             success: false,
             action: '',
             errorMessage: false,
-            successAction: "Login"
+            successAction: "Login",
+            emailErrorMessage: "",
+            passwordErrorMessage: ""
         };
     }
 
@@ -53,7 +54,7 @@ class LoginPage extends React.Component {
         });
 
         if (!/(.+)@(.+){2,}\.(.+){2,}/.test(this.state.username)) {
-            this.setState({ emailErrorMessage: "Emails must be valid such as username@gmail.com" });
+            this.setState({ emailErrorMessage: "Email must be valid" });
 
             return;
         }
@@ -68,20 +69,26 @@ class LoginPage extends React.Component {
         const password = this.state.password;
 
         authenticationService.login(username, password).then(user => {
-            // console.log(user);
-            const { from } = this.props.location.state || {
-                from: { pathname: "/" }
-            };
-
-            this.props.history.push(from);
+            this.props.history.push({
+                pathname: `/admin`,
+                state: {
+                    success: true,
+                    action: 'Login'
+                }
+            });
         }).catch(error => {
+            this.setState({
+                errorMessage: true
+            });
+
             return error;
         });
     };
 
     onSnackbarClose = () => {
         this.setState({
-            successAction: ""
+            successAction: "",
+            errorMessage: false
         });
     }
 
@@ -98,16 +105,16 @@ class LoginPage extends React.Component {
     render () {
         const disabled = !this.state.username || !this.state.password;
 
-        const { emailErrorMessage, passwordErrorMessage } = this.state;
+        const { isLoading, emailErrorMessage, passwordErrorMessage, errorMessage } = this.state;
 
-        if (this.state.isLoading) {
+        if (isLoading) {
             return <GridContainer body>
                 <AgroLoader />
             </GridContainer>;
         }
 
         return (
-            <Container maxWidth="xs">
+            <Container maxWidth="xs" style={{ minHeight: "500px" }} >
                 <div style={{ marginTop: 50, marginBottom: 50 }}>
                     <div>
                         <Avatar>
@@ -176,9 +183,8 @@ class LoginPage extends React.Component {
                         </Grid>
                     </form>
                 </div>
-                {this.state.successAction && <AgroSnackbar type={'success'} message={`${this.state.successAction} Successful`} onClose={this.onSnackbarClose} />}
 
-                {this.state.errorMessage && <AgroSnackbar type={'error'} message={`Delete Successful`} onSnackbarClose={this.onSnackbarClose} />}
+                {errorMessage && <AgroSnackbar type={'error'} message={`Wrong Credentials`} onSnackbarClose={this.onSnackbarClose} />}
             </Container>
         );
     }
