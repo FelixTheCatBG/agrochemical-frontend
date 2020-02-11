@@ -7,7 +7,7 @@ import logo from "../../assets/img/AgrochemicalLogo.png";
 
 const useStyles = theme => ({
     root: {
-        backgroundColor: "#d88e16",
+        backgroundColor: "#EE7629",
         color: "white",
         marginBottom: 0,
         paddingTop: 30
@@ -39,6 +39,9 @@ const useStyles = theme => ({
         width: "100%",
         maxWidth: 250,
         height: "auto"
+    },
+    title: {
+        color: theme.palette.common.white
     },
     link: {
         paddingBottom: "5px"

@@ -9,8 +9,6 @@ const welcomeNotesService = {
         return axios
             .get(`${baseUrl}/api/product`)
             .then(response => {
-                console.log(response);
-
                 return response.data;
             })
             .catch(error => {
@@ -19,7 +17,6 @@ const welcomeNotesService = {
     },
 
     getProduct: productId => {
-
         return axios
             .get(`${baseUrl}/api/product/${productId}`)
             .then(response => {
@@ -30,23 +27,30 @@ const welcomeNotesService = {
             .catch(error => {
                 throw error;
             });
+    },
+    getCategory: categoryId => {
+        return axios
+            .get(`${baseUrl}/api/ProductCategory/${categoryId}`)
+            .then(response => {
+
+                return response.data;
+            })
+            .catch(error => {
+                throw error;
+            });
+
+    },
+    deleteProduct: productId => {
+        return axios
+            .delete(`api/product/${productId}`)
+            .then(response => {
+                return response;
+            })
+            .catch(error => {
+                return error.response;
+            });
 
     }
-    // getActiveNote: () => {
-
-    //     return axios
-    //         .get('/welcomenotes?activeNote=true')
-    //         .then(response => {
-    //             return response.data;
-    //         })
-    //         .catch(error => {
-    //             globalErrorHandler(error);
-
-    //             throw error.response;
-    //         });
-
-    // },
-
 };
 
 export default welcomeNotesService;

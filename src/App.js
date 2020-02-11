@@ -17,7 +17,7 @@ import CataloguePage from './views/CataloguePage/CataloguePage';
 import DiagnoserPage from './views/DiagnoserPage/DiagnoserPage';
 import ContactPage from './views/ContactPage/ContactPage';
 import DiseasesPage from './views/DiseasesPage/DiseasesPage';
-
+import 'font-awesome/css/font-awesome.min.css';
 class App extends React.Component {
     constructor (props) {
         super(props);
@@ -46,7 +46,7 @@ class App extends React.Component {
         return (
             <ThemeProvider theme={theme}>
                 <Container className="mainContainer" style={{ padding: 0, backgroundColor: "white", marginTop: "15px", marginBottom: "15px" }} maxWidth="lg" >
-                    <Router history={history}>
+                    <Router history={history} >
                         <AppBar currentUser={currentUser} isAdmin={isAdmin} logout={this.logout} />
                         <Switch>
                             <PrivateRoute path="/admin" roles={[Role.Admin]} component={AdminPage} />

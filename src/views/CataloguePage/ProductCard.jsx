@@ -60,13 +60,13 @@ export class ProductCard extends Component {
                         title={product.name}
                     />
                     <CardContent>
-                        <h3 className={classes.cardHeading}>{product.name}</h3>
+                        <h5 noWrap className={classes.cardHeading}>{product.name}</h5>
                         <Typography className={classes.tooltip} noWrap component="p">{product.description}</Typography>
                     </CardContent>
 
                     <CardActions>
-                        <Button onClick={this.handleDetailsDialogOpen} size="small" color="primary">
-                            Learn More
+                        <Button onClick={this.handleDetailsDialogOpen} size="small" color="secondary">
+                            Read More
                         </Button>
                     </CardActions>
                 </Card>

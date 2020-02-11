@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Paper from '@material-ui/core/Paper';
 import GridItem from '../../components/Grid/GridItem';
 import GridContainer from '../../components/Grid/GridContainer';
 import withStyles from "@material-ui/core/styles/withStyles";
-import Typography from "@material-ui/core/Typography";
 // import adama from "../../assets/img/Partners/adama.png";
 import albaugh from "../../assets/img/Partners/albaugh.png";
 import Arysta from "../../assets/img/Partners/Arysta.png";
@@ -39,55 +37,53 @@ export class Partners extends Component {
         const { classes } = this.props;
 
         return (
-            <GridContainer className={classes.mainContainer}>
+            <GridContainer style={{ paddingTop: 0 }}>
                 <GridItem xs={12}>
-                    <Paper className={classes.paper}>
-                        <Typography variant="h3" align="center" className={classes.title} component="h2">
-                            Partners
-                        </Typography>
-                        <p>Here is the list with all the manufacturer companies that we cooperate with and where the products that we offer originate from:</p>
 
-                        <GridContainer>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={Arysta} alt="Arysta" />
-                            </GridItem>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={albaugh} alt="albaugh" />
-                            </GridItem>
-                        </GridContainer>
-                        <GridContainer>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={proplan} alt="proplan" />
-                            </GridItem>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={fmc} alt="fmc" />
-                            </GridItem>
-                        </GridContainer>
-                        <GridContainer>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={globachem} alt="globachem" />
-                            </GridItem>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={isk} alt="isk" />
-                            </GridItem>
-                        </GridContainer>
-                        <GridContainer>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={sc} alt="sc" />
-                            </GridItem>
-                            {/* <GridItem xs={12} sm={6}>
+                    <h2>Partners</h2>
+                    <p>Here is the list with all the manufacturer companies that we cooperate with and where the products that we offer originate from:</p>
+
+                    <GridContainer>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={Arysta} alt="Arysta" />
+                        </GridItem>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={albaugh} alt="albaugh" />
+                        </GridItem>
+                    </GridContainer>
+                    <GridContainer>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={proplan} alt="proplan" />
+                        </GridItem>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={fmc} alt="fmc" />
+                        </GridItem>
+                    </GridContainer>
+                    <GridContainer>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={globachem} alt="globachem" />
+                        </GridItem>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={isk} alt="isk" />
+                        </GridItem>
+                    </GridContainer>
+                    <GridContainer>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={sc} alt="sc" />
+                        </GridItem>
+                        {/* <GridItem xs={12} sm={6}>
                                 <img className={classes.image} src={adama} alt="agrochemical" />
                             </GridItem> */}
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={basf} alt="basf" />
-                            </GridItem>
-                        </GridContainer>
-                        <GridContainer>
-                            <GridItem xs={12} sm={6}>
-                                <img className={classes.image} src={sicit2000} alt="sicit2000" />
-                            </GridItem>
-                        </GridContainer>
-                    </Paper>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={basf} alt="basf" />
+                        </GridItem>
+                    </GridContainer>
+                    <GridContainer>
+                        <GridItem xs={12} sm={6}>
+                            <img className={classes.image} src={sicit2000} alt="sicit2000" />
+                        </GridItem>
+                    </GridContainer>
+
                 </GridItem>
             </GridContainer>
         );

@@ -1,0 +1,213 @@
+
+
+.feedFirstSection.container{
+    position: relative;
+}
+
+span.rateUpNotLiked, span.rateUpLiked {
+    position: relative;
+    margin: 5px 5px 5px 25px;
+    // color: $scaleUpLightgray;
+    font-weight: 500;
+    transition: color 0.3s;
+    top: 2px;
+}
+span.companyFeedComment{
+    // color: $scaleUpTextColor;
+}
+span.rateUpLiked {
+    // color: $scaleUpTurquoise;
+    transition: color 0.3s;
+}
+
+i.actionText.delete{
+    padding: 0 10px;
+    // color: $scaleUpLightgray
+}
+i.actionText:hover{
+    cursor: pointer
+}
+div.editFeedModal > div > div {
+    width: 720px;
+    max-width: 720px;
+    box-sizing: border-box;
+    padding: 13px 35px;
+}
+div.editModalTitle{
+    margin-bottom: 17px;
+    // color: $scaleUpTextColor;
+}
+div.editModalTitle > h2{
+    // color: $scaleUpTextColor;
+    font-weight: 300
+}
+div.actionsPanelEditModal{
+    margin-bottom: 21px;
+    margin-top: 50px;
+    padding-right: 12px
+}
+div.comentTextAreaContainer{
+    padding-bottom: 0px
+}
+textarea.editCommentTextArea{
+    width: 100%;
+    font-size: 14px;
+    // border: 1px solid $scaleUpBorderLight;
+    // color: $scaleUpTextColor;
+    resize: none;
+    box-sizing: border-box;
+    padding: 20px
+}
+span.textAreaCounter{
+    float: right;
+    font-size: 12px;
+    font-weight: 600;
+    // color: $scaleUpTurquoise
+}
+i.closeIconEditModal{
+    font-size: 21px;
+    // color: $scaleUpTextColorLight;    
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+}
+i.closeIconEditModal:hover{
+    // color: $scaleUpTextColor;
+}
+div.closeIconContainer{
+    text-align: right;
+}
+span.textAreaCounter .textAreaLimit{
+    // color: $scaleUpTextColor;
+}
+label.editCommentAreaLabel{
+    display: block;
+    // color: $scaleUpTextColor;
+    font-weight: 600;
+    font-size: 12px
+}
+button.badgeDeleteDialogButtons{
+    height: 40px;
+    width: 120px;
+    // background-color: $scaleUpTurquoise;
+    // color: $scaleUpWhite;
+    font-weight: 500;
+    margin: 0 7px
+}
+button.badgeDeleteDialogButtons:hover{
+    // background-color: $scaleUpActionHover;
+}
+button.badgeDeleteDialogButtons:active{
+    // background-color: $scaleUpActionActive;
+}
+button.badgeDeleteDialogButtons.cancel{
+    // color: $scaleUpTurquoise;
+    // background-color: $scaleUpWhite;
+    // border: 1px solid $scaleUpTurquoise
+}
+button.badgeDeleteDialogButtons.cancel:hover{
+    // color: $scaleUpActionHover;
+    // border: 1px solid $scaleUpActionHover
+}
+button.badgeDeleteDialogButtons.cancel:active{
+    // color: $scaleUpActionActive;
+    // border: 1px solid $scaleUpActionActive
+}
+i.actionText.delete:hover{
+    // color: $scaleUpLightRed
+}
+div.actionButtonContainer{
+    display: inline-block;
+    padding-top: 2px;
+}
+
+@media (min-width: 1023px) {
+    div.actionButtonContainer {
+        & .rateUpNotLiked i,
+        & .rateUpLiked i {
+            transition: 300ms;
+            transform: scale(1) rotate(0deg);
+        }
+    
+        & .rateUpNotLiked i {
+            &:hover {
+                color: #7ee3ea;
+                transition: 200ms;
+                transform: scale(1.4) rotate(-8deg);
+            }
+        }
+        
+        & .rateUpLiked i {
+            &:hover {
+                transition: 200ms;
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+div.actionButtonContainer.delete{
+    float: right;
+    margin-right: 10px
+}
+div.actionsContainer{
+    width: 100%;
+    height: 30px;
+}
+span.actionText{
+    // color: $scaleUpLightgray;
+    padding-left: 8px;
+    cursor: context-menu;
+    font-weight: 600;
+}
+div.actionMenuIconContainer{
+    color: #cecece;
+    position: absolute;
+    right: 20px;
+    top: 19px;
+    width: 12px;
+    cursor: pointer;
+    text-align: center;
+}
+div.feedRendererContainer {
+    width: 75%
+}
+
+@media (max-width: 1280px) {
+    div.feedRendererContainer {
+        width: 100%
+    }
+}
+
+div.feedRendererContainer > div > div{
+    width: 100%;
+    max-width: 100%;
+    flex-basis: 100%
+}
+div.actionMenuIconContainer:hover{
+    // color: $scaleUpActionHover;
+}
+div.actionMenuIconContainer:active{
+    // color: $scaleUpActionActive;
+}
+i.actionMenuIcon{
+    pointer-events: none;
+}
+.actionMenuContainer{
+    left: 10px;
+}
+span.actionText.number{
+    // color: $scaleUpTurquoise;
+}
+
+span.liked {
+    // color: $scaleUpTurquoise;
+    transition: color 0.3s;
+    padding-left: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+i.like {
+    cursor: pointer;
+}

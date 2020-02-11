@@ -1,4 +1,3 @@
-//Base Colors
 const agroTurquoise = "#36d1dc";
 const agroTurquoiseHover = "#1EA0AA";
 const agroTurquoiseActive = "#187880";

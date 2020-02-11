@@ -55,7 +55,6 @@ class ProductDetailsModal extends Component {
                     <span onClick={this.props.handleDialogClose} className="closeButtonWrapper"><i class="fa fa-times"></i></span>
                 </DialogTitle>
                 <DialogContent className="comentTextAreaContainer">
-
                     <div className="storeCardContainer">
                         <div className="storeCardPaper">
                             <div className="productPicturesSection">
@@ -94,6 +93,11 @@ class ProductDetailsModal extends Component {
                         </div>
                     </div>
                 </DialogContent>
+                {/* <DialogActions className="actionsPanelEditModal">
+                    <Button onClick={this.props.handleDialogClose} className="badgeDeleteDialogButtons cancel">
+                        Cancel
+                    </Button>
+                </DialogActions> */}
             </Dialog>
         );
     }

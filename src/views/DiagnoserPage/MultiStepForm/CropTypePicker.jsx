@@ -25,16 +25,16 @@ const useStyles = theme => ({
 
 export class CropTypePicker extends Component {
     state = {
-        categories: [],
+        crops: [],
         chosenCategory: {},
         age: ""
     }
 
     componentDidMount () {
-        cropService.getAllCategories()
+        cropService.getAllCrops()
             .then((res) => {
                 this.setState({
-                    categories: res
+                    crops: res
                 });
             });
     }
@@ -71,8 +71,8 @@ export class CropTypePicker extends Component {
                             <em>None</em>
                         </MenuItem>
                         {
-                            this.state.categories.map(category => (
-                                <MenuItem value={category}>{category.name}</MenuItem>
+                            this.state.crops.map(category => (
+                                <MenuItem value={category}>{category.cropName}</MenuItem>
                             ))
                         }
                     </Select>

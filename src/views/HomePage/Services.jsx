@@ -3,9 +3,9 @@ import GridContainer from '../../components/Grid/GridContainer';
 import GridItem from '../../components/Grid/GridItem';
 import Typography from "@material-ui/core/Typography";
 
-import fertilizerIcon from "../../assets/img/fertilizerIcon.png";
-import productsIcon from "../../assets/img/productsIcon.png";
-import truckIcon from "../../assets/img/truckIcon.png";
+import fertilizerIcon from "../../assets/img/fertilizer.png";
+import productsIcon from "../../assets/img/products.png";
+import truckIcon from "../../assets/img/truck.png";
 
 export class Services extends Component {
     render () {
@@ -22,7 +22,7 @@ export class Services extends Component {
                     <GridItem xs={12} md={4}>
                         <div className="service-item">
                             <div className="icon-container">
-                                <img src={truckIcon} style={{ width: "100px", height: "78px", marginTop: "10px" }} alt="truckIcon" />
+                                <img className="servicesIcons truck" src={truckIcon} alt="truckIcon" />
                             </div>
 
                             <div className="media-container">
@@ -36,7 +36,7 @@ export class Services extends Component {
                         <div className="service-item">
 
                             <div className="icon-container">
-                                <img src={fertilizerIcon} style={{ width: "70px" }} alt="fertilizer" />
+                                <img className="servicesIcons" src={fertilizerIcon} alt="fertilizer" />
                             </div>
 
                             <div className="media-container">
@@ -49,7 +49,7 @@ export class Services extends Component {
                     <GridItem xs={12} md={4}>
                         <div className="service-item">
                             <div className="icon-container">
-                                <img src={productsIcon} style={{ width: "52px", height: "85px" }} alt="fertilizer" />
+                                <img className="servicesIcons" src={productsIcon} alt="fertilizer" />
                             </div>
 
                             <div className="media-container">
