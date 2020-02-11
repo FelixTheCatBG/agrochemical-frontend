@@ -9,6 +9,7 @@ import Distributors from "./Distributors";
 import Partners from "./Partners";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import backgroundImage from "../../assets/img/aboutBackground.jpg";
 
 const useStyles = theme => ({
     productsHeader: {
@@ -17,7 +18,12 @@ const useStyles = theme => ({
         color: "#fff"
     },
     headerContainer: {
-        backgroundColor: "#d88e16"
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgrounAttachment: "fixed",
+        boxShadow: "inset 0 0 0 2000px rgba(0, 0, 30, 0.4)"
     },
     formControl: {
         width: "80%"
@@ -33,12 +39,12 @@ const useStyles = theme => ({
         borderRadius: 5,
         backgroundColor: "#eee",
         '&:hover': {
-            backgroundColor: "#d88e16",
+            backgroundColor: "#EE7629",
             color: "white"
         }
     },
     active: {
-        backgroundColor: "#d88e16 !important",
+        backgroundColor: "#EE7629 !important",
         color: "#fff !important"
     }
 });
@@ -75,13 +81,13 @@ class AboutPage extends Component {
             <React.Fragment>
                 <div className={classes.headerContainer}>
                     <GridContainer>
-                        <GridItem xs={8}>
-                            <h1 className={classes.productsHeader}>About</h1>
+                        <GridItem xs={12}>
+                            <h1 className={classes.productsHeader}>About Page</h1>
                         </GridItem>
                     </GridContainer>
                 </div>
                 <GridContainer style={{ minHeight: 600 }}>
-                    <GridItem xs={12} sm={3}>
+                    <GridItem xs={12} sm={3} style={{ borderRight: "1px solid #ccc" }} >
                         <List style={{ marginTop: 10 }} className={classes.sidenav} component="nav" aria-label="sidenav">
                             <ListItem className={`${classes.sideBarListItem} ${this.state.filterByCategory === "Company" ? classes.active : null} ${classes.onHover}`} button onClick={() => this.changeCategory("Company")}>
                                 <ListItemIcon>

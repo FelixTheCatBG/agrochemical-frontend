@@ -7,7 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import withStyles from "@material-ui/core/styles/withStyles";
-
+import { withRouter } from "react-router-dom";
 import logo from "../../assets/img/AgrochemicalLogo.png";
 
 const useStyles = theme => ({
@@ -25,7 +25,6 @@ const useStyles = theme => ({
             display: "none"
         },
         marginLeft: "auto",
-        marginRight: 100,
         color: "white"
     },
     hoverTab: {
@@ -42,16 +41,19 @@ const useStyles = theme => ({
 });
 
 export class AppBar extends Component {
-    state = { value: 0 };
+    state = {
+        value: 0,
+        activeTab: ''
+    };
 
     handleChange = (event, value) => {
         this.setState({ value });
     };
 
-    render () {
 
+    render () {
+        const { location } = this.props;
         const { currentUser, classes } = this.props;
-        const { value } = this.state;
 
         return (
             <MuiAppBar color="primary" position="static" key="appbar">
@@ -59,18 +61,18 @@ export class AppBar extends Component {
                     <img src={logo} alt="logo" className={classes.logo} />
                     <span className={classes.buttonsBar}>
                         <Tabs
-                            value={value}
+                            value={location.pathname}
                             classes={{ indicator: classes.bigIndicator }}
                             onChange={this.handleChange}
                             aria-label="tabs"
                         >
-                            <Tab className={classes.hoverTab} label="Home" component={Link} to="/" />
-                            <Tab className={classes.hoverTab} label="About" component={Link} to="/about" />
-                            <Tab className={classes.hoverTab} label="Catalogue" component={Link} to="/catalogue" />
-                            <Tab className={classes.hoverTab} label="Diagnoser" component={Link} to="/diagnoser" />
-                            <Tab className={classes.hoverTab} label="Diseases" component={Link} to="/diseases" />
-                            <Tab className={classes.hoverTab} label="Contacts" component={Link} to="/contacts" />
-                            {this.props.isAdmin && <Tab className={classes.hoverTab} label="Admin" component={Link} to="/admin" />}
+                            <Tab className={classes.hoverTab} label="Home" component={Link} to="/" value={"/"} />
+                            <Tab className={classes.hoverTab} label="About" component={Link} to="/about" value={"/about"} />
+                            <Tab className={classes.hoverTab} label="Catalogue" component={Link} to="/catalogue" value={"/catalogue"} />
+                            <Tab className={classes.hoverTab} label="Diagnoser" component={Link} to="/diagnoser" value={"/diagnoser"} />
+                            <Tab className={classes.hoverTab} label="Diseases" component={Link} to="/diseases" value={"/diseases"} />
+                            <Tab className={classes.hoverTab} label="Contacts" component={Link} to="/contacts" value={"/contacts"} />
+                            {this.props.isAdmin && <Tab className={classes.hoverTab} label="Admin" component={Link} to="/admin" value={"/admin"} />}
                             {currentUser && <a onClick={this.props.logout} className="nav-item nav-link">Logout</a>}
                         </Tabs>
                     </span>
@@ -102,4 +104,4 @@ export class AppBar extends Component {
     }
 }
 
-export default withStyles(useStyles)(AppBar);
+export default withRouter(withStyles(useStyles)(AppBar));

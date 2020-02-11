@@ -4,6 +4,7 @@ import GridContainer from '../../components/Grid/GridContainer';
 import { TextField } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
+import backgroundImage from "../../assets/img/homeBackground.jpeg";
 
 const useStyles = theme => ({
     section: {
@@ -65,6 +66,19 @@ const useStyles = theme => ({
     callToActionButton: {
         color: "white",
         marginTop: 10
+    },
+    productsHeader: {
+        paddingLeft: 10,
+        paddingTop: 15,
+        color: "#fff"
+    },
+    headerContainer: {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgrounAttachment: "fixed",
+        boxShadow: "inset 0 0 0 2000px rgba(0, 0, 30, 0.4)"
     }
 });
 
@@ -80,14 +94,6 @@ export class ContactPage extends Component {
         };
     }
 
-    handleInputChange = e => {
-        const name = e.target.name;
-        const value = e.target.value;
-
-        this.setState({
-            [name]: value
-        });
-    };
 
     handleChangeInput = input => event => {
         this.setState({ [input]: event.target.value });
@@ -98,9 +104,17 @@ export class ContactPage extends Component {
 
         return (
             <React.Fragment>
-                <GridContainer style={{ marginTop: 60 }} body>
+                <div className={classes.headerContainer}>
+                    <GridContainer>
+                        <GridItem xs={12}>
+                            <h1 className={classes.productsHeader}>Contacts page</h1>
+                        </GridItem>
+                    </GridContainer>
+                </div>
+
+                <GridContainer style={{ marginTop: 10 }} body>
                     <GridItem xs={12} sm={6}>
-                        <h1>Contact info</h1>
+                        <h2>Contact info</h2>
                         <h3>Location</h3>
                         <p>Plovdiv 4004, <br></br>Komatevska str. 73</p>
                         <h3>Phone number</h3>
@@ -109,8 +123,7 @@ export class ContactPage extends Component {
                         <p><i ></i>agrochemical2000@gmail.com</p>
                     </GridItem>
                     <GridItem xs={12} sm={6}>
-                        <h1 className="ui centered">E-mail form</h1>
-
+                        <h2 className="ui centered">E-mail form</h2>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -156,7 +169,7 @@ export class ContactPage extends Component {
                             label="Phone Number"
                             name="phoneNumber"
                             autoComplete="email"
-                            onChange={this.handleChangeInput('email')}
+                            onChange={this.handleChangeInput('phoneNumber')}
                         />
 
                         <TextField

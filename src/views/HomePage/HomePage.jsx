@@ -6,10 +6,11 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import backgroundImage from "../../assets/img/homeBackground.jpeg";
 import { Typography } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import { Link } from 'react-router-dom';
 import OurGoal from "./OurGoal";
 import Partners from "./Partners";
 import Services from "./Services";
-import { Link } from 'react-router-dom';
+
 
 const useStyles = theme => ({
     mainImage: {
@@ -34,7 +35,8 @@ const useStyles = theme => ({
     mainImageContent: {
         textAlign: "center",
         position: 'relative',
-        padding: "30px 0px 30px 0px"
+        padding: "30px 0px 30px 0px",
+        color: theme.palette.common.white
     },
     callToActionHeader: {
         // padding: theme.spacing(2),
@@ -58,21 +60,23 @@ const useStyles = theme => ({
     },
     callToActionBox: {
         width: "100%",
-        backgroundColor: "#d88e16"
+        backgroundColor: "#EE7629"
     },
     section: {
         padding: "70px 0"
     },
     title: {
+        color: theme.palette.common.white,
         marginBottom: "50px",
         marginTop: "20px",
         minHeight: "32px",
         textDecoration: "none",
         textAlign: "center",
-        fontSize: "3.35rem"
+        fontSize: "3.35em"
     },
     description: {
         // color: "#999",
+        color: theme.palette.common.white,
         textAlign: "center",
         textDecoration: "none",
         fontSize: "1.35rem"

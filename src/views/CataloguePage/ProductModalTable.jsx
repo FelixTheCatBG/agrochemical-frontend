@@ -19,8 +19,6 @@ const useStyles = makeStyles({
 export default function SimpleTable (props) {
     const classes = useStyles();
 
-    console.log(props);
-
     return (
         <Paper>
             <Table className={classes.table} aria-label="simple table">

@@ -2,7 +2,52 @@ body {
     // background-color:#0f541c;
     background-color:#ccc;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    overflow-y: auto;
+    color: #333
 }
+h1 {
+    font-size: 42px;
+    line-height: 40px;
+    font-weight: 500;
+    color: #333
+}
+
+h2 {
+    font-size: 42px;
+    line-height: 40px;
+    font-weight: 500;
+    color: #333
+}
+
+h3 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #333
+}
+
+h4 {
+    font-size: 30px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #333
+}
+
+/* Won't be used here */
+
+h5 {
+    font-size: 24px;
+    line-height: 20px;
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 20px;
+}
+.servicesIcons {
+    width: 160px;
+}
+
 .mainContainer {
    box-shadow: 2px 16px 17px 1px rgba(0,0,0,0.2), 2px 16px 16px 2px rgba(0,0,0,0.14), 2px 20px 24px 2px rgba(0,0,0,0.12)
 }
@@ -179,11 +224,7 @@ div.productDetailsModal{
         width: auto;
         display: block;
         margin: 0;
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // -ms-transform: translate(-50%, -50%);
-        // transform: translate(-50%, -50%);
+    
     }
     div.storeCardPaper{
         border: none;
@@ -249,12 +290,6 @@ div.productDetailsModal{
         cursor: pointer;
         padding: 5px;
     }
-    // div.productDetailsModalTitle span.closeButtonWrapper:hover{
-    //     color: $scaleUpTextColor;
-    // }
-    // div.productDetailsModalTitle span.closeButtonWrapper:active{
-    //     color: $scaleUpBlack;
-    // }
 }
 
 div.productDetailsModal > div > div{
@@ -271,9 +306,6 @@ div.sortContainer div.selector{
     height: 40px;
     width: 150px;
     margin-left: 10px;
-    // margin-right: 15px;
-    // border: 1px solid $scaleUpBorderColorLight;
-    // color: $scaleUpTextColor;
     box-sizing: border-box;
     padding-left: 5px;
     border-radius: 4px;
@@ -453,7 +485,7 @@ label.sortSelectLabel{
 
 .storeCardProductHeaderDiv {
     font-size: 24px;
-    color: #d88e16;
+    color: #EE7629;
     margin-top: 0px !important;
 }
 .storeCardProductHeaderDiv.h2 {
@@ -509,7 +541,6 @@ label.sortSelectLabel{
     width: 20%;
     display: flex;
     justify-content: center;
-    margin-bottom:15px;
   }
   
   .media-container {

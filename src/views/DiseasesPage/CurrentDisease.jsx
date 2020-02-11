@@ -27,7 +27,6 @@ export class CurrentDisease extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            product: this.props.product,
             openDetailsDialog: false
         };
     }
@@ -45,30 +44,38 @@ export class CurrentDisease extends Component {
     };
 
     render () {
-        const { product, classes } = this.props;
+        const { disease } = this.props;
 
         return (
-            <GridItem style={{ marginTop: 20 }} key={product.id} xs={12} sm={4} >
-                <Card className={classes.cardBorder}>
-                    <CardMedia
-                        component="img"
-                        alt={product.name}
-                        image={backgroundImage}
-                        height="auto"
-                        width="100%"
-                        title={product.name}
-                    />
-                    <CardContent>
-                        <h3 className={classes.cardHeading}>{product.name}</h3>
-                        <Typography className={classes.tooltip} noWrap component="p">{product.description}</Typography>
-                    </CardContent>
+            <GridItem style={{ marginTop: 20 }} xs={12} sm={4} >
 
-                    <CardActions>
-                        <Button onClick={this.handleDetailsDialogOpen} size="small" color="primary">
-                            Learn More
+                <div> {disease.diseaseName}</div>
+                <div> {disease.diseaseDescription}</div>
+                <div>
+                    {disease.symptoms && disease.symptoms.map(symptom => (
+                        <div>{symptom.illnessSymptoms}</div>
+                    ))}
+                </div>
+                {/* <Card className={classes.cardBorder}>
+                        <CardMedia
+                            component="img"
+                            alt={product.name}
+                            image={backgroundImage}
+                            height="auto"
+                            width="100%"
+                            title={product.name}
+                        />
+                        <CardContent>
+                            <h3 className={classes.cardHeading}>{product.name}</h3>
+                            <Typography className={classes.tooltip} noWrap component="p">{product.description}</Typography>
+                        </CardContent>
+
+                        <CardActions>
+                            <Button onClick={this.handleDetailsDialogOpen} size="small" color="primary">
+                                Learn More
                         </Button>
-                    </CardActions>
-                </Card>
+                        </CardActions>
+                    </Card>  */}
             </GridItem>
         );
     }

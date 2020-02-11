@@ -1,0 +1,61 @@
+
+div.ActionsMenuPaper{
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 6px 2px #EDEFF8;
+    width: 150px;
+    height: fit-content;
+    position: relative;
+    border-radius: 5px;
+    float: right;
+    overflow: hidden;
+    z-index: 99999999;
+}
+div.ActionsMenuPaper.badgeCard{
+    top: 21px;
+    left: 205px;
+    z-index: 3;
+    
+}
+div.ActionsMenuPaper.badgeCard.lastCard{
+    top: 21px;
+    left: 43px;
+    z-index: 4;
+}
+div.ActionsMenuPaper.feedCard{
+    position: absolute;
+    top: 25px;
+    right: -133px;
+}
+div.ActionsMenuPaper.group{
+    position: absolute;
+    left: 310px;
+    top: 40px;
+}
+div.ActionsMenuItem{
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 14px 10px;
+    cursor: pointer;
+    // color: $agroTextColor;
+}
+div.ActionsMenuItem:hover{
+    // background-color: $agroTextColor;
+    // color: $agroWhite;
+}
+div.ActionsMenuItem:active{
+    // background-color: $agroWhite;
+    // color: $agroTextColor;
+}
+@media (max-width: 1024px){
+    div.ActionsMenuPaper.feedCard{
+        top: 45px;
+        right: 10px;
+    }
+}
+@media (max-width: 403px){
+    div.ActionsMenuPaper.badgeCard{
+    top: 38px;
+    left: 69px;
+}
+}

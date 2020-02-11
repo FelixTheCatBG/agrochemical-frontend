@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import Paper from '@material-ui/core/Paper';
-// import GridItem from '../../components/Grid/GridItem';
-// import GridContainer from '../../components/Grid/GridContainer';
+
 import withStyles from "@material-ui/core/styles/withStyles";
 import CropTypePicker from "../MultiStepForm/CropTypePicker";
 import SymptomsPicker from "../MultiStepForm/SymptomsPicker";
@@ -75,8 +73,6 @@ export class MainForm extends Component {
                 prevStep={this.prevStep}
                 values={values}
             />;
-            // case 4:
-            //     return <Success />;
         default:
             return null;
         }
