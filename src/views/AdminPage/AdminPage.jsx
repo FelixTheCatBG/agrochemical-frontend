@@ -126,7 +126,7 @@ export class AdminPage extends Component {
         this.setState({
             isLoading: false,
             createProductAction: true,
-            products: [ ...this.state.products, { id: 55, name: "New product", description: "Description1", category: "Fungicide" }]
+            products: [{ id: 55, name: "New product", description: "Description1", category: "Fungicide", manufacturer: "FMC" }, ...this.state.products ]
         });
     }
 
@@ -151,16 +151,16 @@ export class AdminPage extends Component {
                         <GridItem xs={12} sm={3} style={{ borderRight: "1px solid #ccc" }}>
                             <List style={{ marginTop: 10 }} className={classes.sidenav} component="nav" aria-label="sidenav">
                                 <ListItem
-                                    className={`${classes.sideBarListItem} ${this.state.filterByCategory === "Products" ? classes.active : null} ${classes.onHover}`}
+                                    className={`${classes.sideBarListItem} ${classes.active} ${classes.onHover}`}
                                     button
-                                    onClick={() => this.changeCategory("Products")}
+
                                 >
                                     <ListItemText primary="Products" />
                                 </ListItem>
                                 <ListItem
                                     className={`${classes.sideBarListItem} ${this.state.filterByCategory === "Diseases" ? classes.active : null} ${classes.onHover}`}
                                     button
-                                    onClick={() => this.changeCategory("Diseases")}
+
                                 >
                                     <ListItemText primary="Diseases" />
                                 </ListItem>

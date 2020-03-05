@@ -64,32 +64,41 @@ class ProductDetailsModal extends Component {
                             </div>
                             <div className="productInfoSection">
                                 <div className={"storeCardProductHeaderDiv"}>
-                                    <h2 className={"storeCardProductHeader"}>{product.productName}</h2>
+                                    <h2 style={{ marginBottom: "10px", marginTop: "5px", color: "#EE7629" }} className={"storeCardProductHeader"}>{product.productName}</h2>
                                     <div className="productQuantity">{product.activeIngredient}</div>
                                 </div>
-                                <h2>Description:</h2>
+                                <h5 style={{ marginBottom: "5px", marginTop: "15px" }}>Description:</h5>
                                 <div className="productDescription">{product.description}</div>
 
                                 <div className="productDescription">{product.productDescription}</div>
                                 <div className="productDescription">{product.formula}</div>
                                 <div className="productDescription">{product.type}</div>
-                                <div className="productDescription">{product.mechanism}</div>
-                                <div className="productDescription">{product.howToRecommendation}</div>
+
+
                                 <div className="productDescription">{product.productAdvantages}</div>
                             </div>
                             <br></br>
                             <hr></hr>
-                            <h2>Application</h2>
+                            <h3>Application</h3>
                             <ProductsModalTable tableData={this.state.tableData} />
 
-                            <h2>Advantages</h2>
-                            <ProductsModalTable tableData={this.state.tableData} />
+                            <h3>Mechanism of action</h3>
+                            <div className="">{product.mechanism}</div>
 
-                            <h2>Mechanism of action</h2>
-                            <ProductsModalTable tableData={this.state.tableData} />
+                            <h3>How to use</h3>
+                            <div className="">{product.howToRecommendation}</div>
 
-                            <h2>Packages</h2>
-                            <ProductsModalTable tableData={this.state.tableData} />
+                            <h3>Packages</h3>
+                            {product.productName === "Diagonal" &&
+                                <div><div>5 Litres</div>
+                                    <div>10 Litres</div>
+                                    <div>20 Litres</div></div>
+                            }
+                            {product.productName === "Domnik 250" &&
+
+                                <div><div>1 Litres</div>
+                                    <div>10 Litres</div></div>
+                            }
                         </div>
                     </div>
                 </DialogContent>

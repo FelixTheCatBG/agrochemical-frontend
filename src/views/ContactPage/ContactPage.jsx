@@ -115,11 +115,11 @@ export class ContactPage extends Component {
                 <GridContainer style={{ marginTop: 10 }} body>
                     <GridItem xs={12} sm={6}>
                         <h2>Contact info</h2>
-                        <h3>Location</h3>
+                        <h4>Location</h4>
                         <p>Plovdiv 4004, <br></br>Komatevska str. 73</p>
-                        <h3>Phone number</h3>
+                        <h4>Phone number</h4>
                         <p ><i ></i>032/ 69 00 29</p>
-                        <h3>E-mail</h3>
+                        <h4>E-mail</h4>
                         <p><i ></i>agrochemical2000@gmail.com</p>
                     </GridItem>
                     <GridItem xs={12} sm={6}>

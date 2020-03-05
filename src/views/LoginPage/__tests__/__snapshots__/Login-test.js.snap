@@ -5,43 +5,46 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <main
+      <div
         class="MuiContainer-root MuiContainer-maxWidthXs"
+        style="min-height: 500px;"
       >
         <div
           style="margin-top: 50px; margin-bottom: 50px;"
         >
-          <div
-            class="MuiAvatar-root MuiAvatar-colorDefault"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              role="presentation"
-              viewBox="0 0 24 24"
+          <div>
+            <div
+              class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
             >
-              <g
-                fill="none"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
               >
+                <g
+                  fill="none"
+                >
+                  <path
+                    d="M0 0h24v24H0V0z"
+                  />
+                  <path
+                    d="M0 0h24v24H0V0z"
+                    opacity=".87"
+                  />
+                </g>
                 <path
-                  d="M0 0h24v24H0V0z"
+                  d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
                 />
-                <path
-                  d="M0 0h24v24H0V0z"
-                  opacity=".87"
-                />
-              </g>
-              <path
-                d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-              />
-            </svg>
+              </svg>
+            </div>
+            <h1
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              Sign in
+            </h1>
           </div>
-          <h1
-            class="MuiTypography-root MuiTypography-body1"
-          >
-            Sign in
-          </h1>
           <form>
             <div
               class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -50,6 +53,7 @@ Object {
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
                 data-shrink="true"
                 for="email"
+                id="email-label"
               >
                 Email Address
                 <span
@@ -74,20 +78,20 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-109 MuiOutlinedInput-notchedOutline"
-                  style="padding-left: 8px;"
+                  class="PrivateNotchedOutline-root-113 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-110"
-                    style="width: 0px;"
+                    class="PrivateNotchedOutline-legendLabelled-115 PrivateNotchedOutline-legendNotched-116"
                   >
                     <span>
-                      ​
+                      Email Address
+                       *
                     </span>
                   </legend>
                 </fieldset>
               </div>
             </div>
+            
             <div
               class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
             >
@@ -95,6 +99,7 @@ Object {
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                 data-shrink="false"
                 for="password"
+                id="password-label"
               >
                 Password
                 <span
@@ -119,32 +124,32 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-109 MuiOutlinedInput-notchedOutline"
-                  style="padding-left: 8px;"
+                  class="PrivateNotchedOutline-root-113 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legend-110"
-                    style="width: 0.01px;"
+                    class="PrivateNotchedOutline-legendLabelled-115"
                   >
                     <span>
-                      ​
+                      Password
+                       *
                     </span>
                   </legend>
                 </fieldset>
               </div>
             </div>
+            
             <label
               class="MuiFormControlLabel-root"
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-123 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-129 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
               >
                 <span
                   class="MuiIconButton-label"
                 >
                   <input
-                    class="PrivateSwitchBase-input-126"
+                    class="PrivateSwitchBase-input-132"
                     data-indeterminate="false"
                     type="checkbox"
                     value="remember"
@@ -172,7 +177,7 @@ Object {
               </span>
             </label>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled MuiButton-fullWidth Mui-disabled"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge Mui-disabled MuiButton-fullWidth Mui-disabled"
               disabled=""
               tabindex="-1"
               type="submit"
@@ -209,99 +214,50 @@ Object {
             </div>
           </form>
         </div>
-        <div
-          class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomLeft"
-          data-qe="pop-up-error-message-box"
-          variant="error"
-        >
-          <div
-            aria-describedby="message-id"
-            class="MuiTypography-root MuiPaper-root MuiPaper-elevation6 MuiSnackbarContent-root AgroSnackbar-success-278 MuiTypography-body2"
-            direction="up"
-            role="alertdialog"
-            style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-          >
-            <div
-              class="MuiSnackbarContent-message"
-            >
-              <span
-                id="message-id"
-              >
-                Login Successful
-              </span>
-            </div>
-            <div
-              class="MuiSnackbarContent-action"
-            >
-              <button
-                aria-label="Close"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiIconButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    role="presentation"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-      </main>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <main
+    <div
       class="MuiContainer-root MuiContainer-maxWidthXs"
+      style="min-height: 500px;"
     >
       <div
         style="margin-top: 50px; margin-bottom: 50px;"
       >
-        <div
-          class="MuiAvatar-root MuiAvatar-colorDefault"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
+        <div>
+          <div
+            class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
           >
-            <g
-              fill="none"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
             >
+              <g
+                fill="none"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                />
+                <path
+                  d="M0 0h24v24H0V0z"
+                  opacity=".87"
+                />
+              </g>
               <path
-                d="M0 0h24v24H0V0z"
+                d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
               />
-              <path
-                d="M0 0h24v24H0V0z"
-                opacity=".87"
-              />
-            </g>
-            <path
-              d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-            />
-          </svg>
+            </svg>
+          </div>
+          <h1
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            Sign in
+          </h1>
         </div>
-        <h1
-          class="MuiTypography-root MuiTypography-body1"
-        >
-          Sign in
-        </h1>
         <form>
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -310,6 +266,7 @@ Object {
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
               data-shrink="true"
               for="email"
+              id="email-label"
             >
               Email Address
               <span
@@ -334,20 +291,20 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-109 MuiOutlinedInput-notchedOutline"
-                style="padding-left: 8px;"
+                class="PrivateNotchedOutline-root-113 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-110"
-                  style="width: 0px;"
+                  class="PrivateNotchedOutline-legendLabelled-115 PrivateNotchedOutline-legendNotched-116"
                 >
                   <span>
-                    ​
+                    Email Address
+                     *
                   </span>
                 </legend>
               </fieldset>
             </div>
           </div>
+          
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
           >
@@ -355,6 +312,7 @@ Object {
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
               for="password"
+              id="password-label"
             >
               Password
               <span
@@ -379,32 +337,32 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-109 MuiOutlinedInput-notchedOutline"
-                style="padding-left: 8px;"
+                class="PrivateNotchedOutline-root-113 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-110"
-                  style="width: 0.01px;"
+                  class="PrivateNotchedOutline-legendLabelled-115"
                 >
                   <span>
-                    ​
+                    Password
+                     *
                   </span>
                 </legend>
               </fieldset>
             </div>
           </div>
+          
           <label
             class="MuiFormControlLabel-root"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-123 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-129 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
             >
               <span
                 class="MuiIconButton-label"
               >
                 <input
-                  class="PrivateSwitchBase-input-126"
+                  class="PrivateSwitchBase-input-132"
                   data-indeterminate="false"
                   type="checkbox"
                   value="remember"
@@ -432,7 +390,7 @@ Object {
             </span>
           </label>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled MuiButton-fullWidth Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge Mui-disabled MuiButton-fullWidth Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
@@ -469,59 +427,7 @@ Object {
           </div>
         </form>
       </div>
-      <div
-        class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomLeft"
-        data-qe="pop-up-error-message-box"
-        variant="error"
-      >
-        <div
-          aria-describedby="message-id"
-          class="MuiTypography-root MuiPaper-root MuiPaper-elevation6 MuiSnackbarContent-root AgroSnackbar-success-278 MuiTypography-body2"
-          direction="up"
-          role="alertdialog"
-          style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-        >
-          <div
-            class="MuiSnackbarContent-message"
-          >
-            <span
-              id="message-id"
-            >
-              Login Successful
-            </span>
-          </div>
-          <div
-            class="MuiSnackbarContent-action"
-          >
-            <button
-              aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiIconButton-label"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  role="presentation"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </main>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

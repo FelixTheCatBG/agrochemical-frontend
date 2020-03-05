@@ -35,10 +35,9 @@ export class OurGoal extends Component {
 
         return (
             <section className={classes.root}>
+                <h3 style={{ textAlign: "center", marginBottom: "15px" }}>What is our Goal?</h3>
                 <GridContainer className={classes.container}>
-                    <Typography variant="h4" align="center" className={classes.title} component="h2">
-                        What is our goal?
-                    </Typography>
+
                     <div>
                         <GridContainer >
                             <GridItem xs={12} md={4}>

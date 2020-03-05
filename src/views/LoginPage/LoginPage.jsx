@@ -165,6 +165,7 @@ class LoginPage extends React.Component {
                             fullWidth
                             variant="contained"
                             color="primary"
+                            style={{ color: "white" }}
                             onClick={this.signIn}
                         >
                             Sign In

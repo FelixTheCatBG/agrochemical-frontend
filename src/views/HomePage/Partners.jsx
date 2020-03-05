@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GridItem from '../../components/Grid/GridItem';
 import GridContainer from '../../components/Grid/GridContainer';
-import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import albaugh from "../../assets/img/Partners/albaugh.png";
 import Arysta from "../../assets/img/Partners/Arysta.png";
@@ -39,11 +38,9 @@ export class Partners extends Component {
 
         return (
             <React.Fragment>
-                <GridContainer style={{ marginTop: "30px" }}>
+                <GridContainer>
                     <GridItem xs={12} >
-                        <Typography variant="h4" align="center" component="h2" gutterBottom>
-                            Partners
-                        </Typography>
+                        <h3 style={{ textAlign: "center" }}>Partners</h3>
                     </GridItem>
                 </GridContainer>
                 <GridContainer>

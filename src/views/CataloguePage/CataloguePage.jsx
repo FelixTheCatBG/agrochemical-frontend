@@ -168,7 +168,6 @@ class CataloguePage extends Component {
 
                 <GridContainer style={{ minHeight: 600 }}>
                     <GridItem xs={12} sm={3} style={{ borderRight: "1px solid #ccc" }} className={classes.rightBorder}>
-                        <h3>Categories:</h3>
                         <List style={{ marginTop: 10 }} className={classes.sidenav} component="nav" aria-label="sidenav">
                             <ListItem className={`${classes.sideBarListItem} ${this.state.filterByType === "Fungicide" ? classes.active : null} ${classes.onHover}`} button onClick={() => this.changeFilter("Fungicide", 1)}>
                                 <ListItemIcon>
@@ -188,24 +187,17 @@ class CataloguePage extends Component {
                                 </ListItemIcon>
                                 <ListItemText primary="Insecticides" />
                             </ListItem>
-                            {/* <ListItem className={`${classes.sideBarListItem} ${this.state.filterByType === "Fertlizer" ? classes.active : null} ${classes.onHover}`} button onClick={() => this.changeFilter("Fertlizer")}>
-                                <ListItemIcon>
-                                    <ChevronRightIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Fertilizers" />
-                            </ListItem> */}
+
                         </List>
                         <br></br>
                         <Divider />
                         <br></br>
-                        <h3>Filters:</h3>
+                        <h5>Filters:</h5>
                         <FormControl variant="outlined" className={classes.formControl}>
                             <InputLabel htmlFor="outlined-chosenDisease-simple">
                                 Disease
                             </InputLabel>
                             <Select
-                                /* { value={this.state.chosenCategory}
-                                 onChange={this.handleInputChange} }*/
                                 labelWidth={100}
                                 inputProps={{
                                     name: 'chosenDisease',
