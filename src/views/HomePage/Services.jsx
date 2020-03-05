@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GridContainer from '../../components/Grid/GridContainer';
 import GridItem from '../../components/Grid/GridItem';
-import Typography from "@material-ui/core/Typography";
 
 import fertilizerIcon from "../../assets/img/fertilizer.png";
 import productsIcon from "../../assets/img/products.png";
@@ -11,18 +10,16 @@ export class Services extends Component {
     render () {
         return (
             <React.Fragment>
-                <GridContainer style={{ marginTop: "30px" }}>
-                    <GridItem xs={12} >
-                        <Typography variant="h4" align="center" component="h2" gutterBottom>
-                            Our services
-                        </Typography>
-                    </GridItem>
-                </GridContainer>
-                <GridContainer>
+
+                <GridItem xs={12} >
+                    <h3 style={{ textAlign: "center", marginTop: "60px" }}>Our services</h3>
+                </GridItem>
+
+                <GridContainer style={{ marginTop: "0px" }}>
                     <GridItem xs={12} md={4}>
                         <div className="service-item">
                             <div className="icon-container">
-                                <img className="servicesIcons truck" src={truckIcon} alt="truckIcon" />
+                                <img className="servicesIcons" src={truckIcon} alt="truckIcon" />
                             </div>
 
                             <div className="media-container">

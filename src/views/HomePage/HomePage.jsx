@@ -72,14 +72,15 @@ const useStyles = theme => ({
         minHeight: "32px",
         textDecoration: "none",
         textAlign: "center",
-        fontSize: "3.35em"
+        fontSize: "4em",
+        lineHeight: "55px"
     },
     description: {
         // color: "#999",
         color: theme.palette.common.white,
         textAlign: "center",
         textDecoration: "none",
-        fontSize: "1.35rem"
+        fontSize: "1.4rem"
     },
     textCenter: {
         textAlign: "center"
@@ -140,18 +141,18 @@ export class HomePage extends Component {
                         <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={8}>
                                 <h1 className={classes.title}>
-                                    National leader in plant protection.
+                                    National leader in plant protection
                                 </h1>
-                                <h3 className={classes.description}>
+                                <p className={classes.description}>
                                     Agrochemical's main activity is imports, distribution and direct sales of high-quality plant protection products in Bulgaria.
                                     Agrochemical takes over 35 percentage on the market of herbicides used to control broad-knit cereals.
-                                </h3>
+                                </p>
                             </GridItem>
                         </GridContainer>
                     </div>
                 </Paper>
-                <div className={classes.callToActionBox}>
-                    <GridContainer >
+                <div className={classes.callToActionBox} style={{ textAlign: "center" }}>
+                    <GridContainer>
                         <GridItem xs={12} sm={8}>
                             <Typography className={classes.callToActionHeader}>Check out the catalogue with the products that we offer</Typography>
                         </GridItem>

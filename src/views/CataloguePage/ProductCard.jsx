@@ -60,8 +60,9 @@ export class ProductCard extends Component {
                         title={product.name}
                     />
                     <CardContent>
-                        <h5 noWrap className={classes.cardHeading}>{product.name}</h5>
-                        <Typography className={classes.tooltip} noWrap component="p">{product.description}</Typography>
+                        <h5 style={{ marginBottom: "10px" }} noWrap className={classes.cardHeading}>{product.name}</h5>
+                        {/* <Typography className={classes.tooltip} noWrap component="p">{product.description}</Typography> */}
+                        <Typography className={classes.tooltip} noWrap component="p">Manufacturer: {product.manufacturer}</Typography>
                     </CardContent>
 
                     <CardActions>

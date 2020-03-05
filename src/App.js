@@ -7,7 +7,6 @@ import { PrivateRoute } from './components';
 import Container from '@material-ui/core/Container';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './styles/Theme';
-
 import Footer from './components/MainComponents/Footer';
 import HomePage from './views/HomePage/HomePage';
 import AboutPage from './views/AboutPage/AboutPage';
@@ -18,6 +17,7 @@ import DiagnoserPage from './views/DiagnoserPage/DiagnoserPage';
 import ContactPage from './views/ContactPage/ContactPage';
 import DiseasesPage from './views/DiseasesPage/DiseasesPage';
 import 'font-awesome/css/font-awesome.min.css';
+
 class App extends React.Component {
     constructor (props) {
         super(props);
@@ -61,6 +61,7 @@ class App extends React.Component {
                     </Router>
                     <Footer />
                 </Container>
+                {currentUser && <a onClick={this.logout} style={{ float: "right" }}>Logout</a>}
             </ThemeProvider>
         );
     }

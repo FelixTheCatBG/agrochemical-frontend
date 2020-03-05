@@ -53,53 +53,57 @@ export class AppBar extends Component {
 
     render () {
         const { location } = this.props;
-        const { currentUser, classes } = this.props;
+        const { classes } = this.props;
 
         return (
-            <MuiAppBar color="primary" position="static" key="appbar">
-                <Toolbar>
-                    <img src={logo} alt="logo" className={classes.logo} />
-                    <span className={classes.buttonsBar}>
-                        <Tabs
-                            value={location.pathname}
-                            classes={{ indicator: classes.bigIndicator }}
-                            onChange={this.handleChange}
-                            aria-label="tabs"
-                        >
-                            <Tab className={classes.hoverTab} label="Home" component={Link} to="/" value={"/"} />
-                            <Tab className={classes.hoverTab} label="About" component={Link} to="/about" value={"/about"} />
-                            <Tab className={classes.hoverTab} label="Catalogue" component={Link} to="/catalogue" value={"/catalogue"} />
-                            <Tab className={classes.hoverTab} label="Diagnoser" component={Link} to="/diagnoser" value={"/diagnoser"} />
-                            <Tab className={classes.hoverTab} label="Diseases" component={Link} to="/diseases" value={"/diseases"} />
-                            <Tab className={classes.hoverTab} label="Contacts" component={Link} to="/contacts" value={"/contacts"} />
-                            {this.props.isAdmin && <Tab className={classes.hoverTab} label="Admin" component={Link} to="/admin" value={"/admin"} />}
-                            {currentUser && <a onClick={this.props.logout} className="nav-item nav-link">Logout</a>}
-                        </Tabs>
-                    </span>
-                    <span className={classes.collapseMenu}>
-                        <ButtonAppBarCollapse>
-                            <Link to='/' style={{ textDecoration: 'none', color: "#333" }}>
-                                <MenuItem >Home</MenuItem>
-                            </Link>
-                            <Link to='/about' style={{ textDecoration: 'none', color: "#333" }}>
-                                <MenuItem >About</MenuItem>
-                            </Link>
-                            <Link to='/catalogue' style={{ textDecoration: 'none', color: "#333" }}>
-                                <MenuItem >Catalogue</MenuItem>
-                            </Link>
-                            <Link to='/Diagnose' style={{ textDecoration: 'none', color: "#333" }}>
-                                <MenuItem >Diagnose</MenuItem>
-                            </Link>
-                            <Link to='/Diseases' style={{ textDecoration: 'none', color: "#333" }}>
-                                <MenuItem >Diseases</MenuItem>
-                            </Link>
-                            <Link to='/Contacts' style={{ textDecoration: 'none', color: "#333" }}>
-                                <MenuItem >Contacts</MenuItem>
-                            </Link>
-                        </ButtonAppBarCollapse>
-                    </span>
-                </Toolbar>
-            </MuiAppBar>
+            <div>
+                {/* {currentUser && <a onClick={this.props.logout} style={{ float: "right" }}>Logout</a>} */}
+
+                <MuiAppBar color="primary" position="static" key="appbar">
+                    <Toolbar>
+                        <img src={logo} alt="logo" className={classes.logo} />
+                        <span className={classes.buttonsBar}>
+                            <Tabs
+                                value={location.pathname}
+                                classes={{ indicator: classes.bigIndicator }}
+                                onChange={this.handleChange}
+                                aria-label="tabs"
+                            >
+                                <Tab className={classes.hoverTab} label="Home" component={Link} to="/" value={"/"} />
+                                <Tab className={classes.hoverTab} label="About" component={Link} to="/about" value={"/about"} />
+                                <Tab className={classes.hoverTab} label="Catalogue" component={Link} to="/catalogue" value={"/catalogue"} />
+                                <Tab className={classes.hoverTab} label="Diagnoser" component={Link} to="/diagnoser" value={"/diagnoser"} />
+                                <Tab className={classes.hoverTab} label="Plant Diseases" component={Link} to="/diseases" value={"/diseases"} />
+                                <Tab className={classes.hoverTab} label="Contacts" component={Link} to="/contacts" value={"/contacts"} />
+                                {this.props.isAdmin && <Tab className={classes.hoverTab} label="Admin" component={Link} to="/admin" value={"/admin"} />}
+
+                            </Tabs>
+                        </span>
+                        <span className={classes.collapseMenu}>
+                            <ButtonAppBarCollapse>
+                                <Link to='/' style={{ textDecoration: 'none', color: "#333" }}>
+                                    <MenuItem >Home</MenuItem>
+                                </Link>
+                                <Link to='/about' style={{ textDecoration: 'none', color: "#333" }}>
+                                    <MenuItem >About</MenuItem>
+                                </Link>
+                                <Link to='/catalogue' style={{ textDecoration: 'none', color: "#333" }}>
+                                    <MenuItem >Catalogue</MenuItem>
+                                </Link>
+                                <Link to='/Diagnose' style={{ textDecoration: 'none', color: "#333" }}>
+                                    <MenuItem >Diagnose</MenuItem>
+                                </Link>
+                                <Link to='/Diseases' style={{ textDecoration: 'none', color: "#333" }}>
+                                    <MenuItem >Diseases</MenuItem>
+                                </Link>
+                                <Link to='/Contacts' style={{ textDecoration: 'none', color: "#333" }}>
+                                    <MenuItem >Contacts</MenuItem>
+                                </Link>
+                            </ButtonAppBarCollapse>
+                        </span>
+                    </Toolbar>
+                </MuiAppBar>
+            </div>
         );
     }
 }

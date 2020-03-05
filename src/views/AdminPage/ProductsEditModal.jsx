@@ -67,11 +67,10 @@ export class ProductsEditModal extends Component {
                         margin="normal"
                         required
                         fullWidth
-                        id="firstName"
-                        label="First Name"
-                        name="firstName"
-                        autoComplete="email"
-                        onChange={this.handleChangeInput('firstName')}
+                        id="productName"
+                        label="Name"
+                        name="productName"
+                        onChange={this.handleChangeInput('productName')}
                         autoFocus
                     />
 
@@ -85,29 +84,7 @@ export class ProductsEditModal extends Component {
                         name="lastName"
                         autoComplete="lastname"
                         onChange={this.handleChangeInput('lastName')}
-                        autoFocus
-                    />
 
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        onChange={this.handleChangeInput('email')}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        fullWidth
-                        id="phoneNumber"
-                        label="Phone Number"
-                        name="phoneNumber"
-                        autoComplete="email"
-                        onChange={this.handleChangeInput('phoneNumber')}
                     />
 
                     <TextField

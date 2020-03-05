@@ -8,9 +8,6 @@ import LoginPage from "../LoginPage";
 configure({ adapter: new Adapter() });
 
 describe('Login Component', () => {
-    // it('should render without throwing an error', () => {
-    //     expect(shallow(<LoginPage />).exists(<form></form>)).toBe(true);
-    // });
 
     it('renders a email input', () => {
         expect(shallow(<LoginPage />).find('#email').length).toEqual(1);

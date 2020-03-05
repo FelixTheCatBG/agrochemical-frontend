@@ -7,13 +7,11 @@ import adminProductStyles from '../../styles/views/adminProductStyles';
 import EditIcon from '@material-ui/icons/Edit';
 import Table from "../../components/Shared/Table";
 import bowser from "../../utils/bowserUtil";
-
 import DeleteIcon from '@material-ui/icons/Delete';
 import ActionsMenu from '../../components/Shared/ActionsMenu';
 import ActionsMenuItem from '../../components/Shared/ActionsMenuItem';
 import ProductsDeleteModal from "./ProductsDeleteModal";
 import ProductsEditModal from "./ProductsEditModal";
-import { Typography } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 
 class ProductsTable extends Component {
@@ -132,61 +130,6 @@ class ProductsTable extends Component {
         window.removeEventListener('click', this.handleDisableMenu, true);
     }
 
-    // handleSubmitProduct = (product) => {
-    //     // const product = {
-    //     //     productName: this.state.version,
-    //     //     productDescription:
-    //     //     productManufacturer: this.orderArray()
-    //     // };
-
-    //     // if (!this.state.version) {
-    //     //     this.setState({ errorMessage: errorCodes.MISSING_VERSION });
-
-    //     //     return;
-    //     // }
-
-    //     // if (!/^(\d+\.)?(\d+\.)?(\*|\d+)$/.test(this.state.version)) {
-    //     //     this.setState({ errorMessage: errorCodes.INVALID_VERSION });
-
-    //     //     return;
-    //     // }
-
-    //     // if (this.state.slides.length < 1) {
-    //     //     this.setState({ errorMessage: errorCodes.MISSING_SLIDES });
-
-    //     //     return;
-    //     // }
-
-    //     this.setState({
-    //         isLoading: true
-    //     });
-
-    //     let noteId = this.editNoteId;
-
-    //     if (!noteId) {
-    //         welcomeNotesService.saveNote(welcomeNote)
-    //             .then((res) => {
-    //                 this.props.history.push({
-    //                     pathname: `/welcome-notes`,
-    //                     state: {
-    //                         success: true,
-    //                         action: 'Create'
-    //                     }
-    //                 });
-    //             });
-    //     } else {
-    //         welcomeNotesService.editNote(noteId, welcomeNote)
-    //             .then((res) => {
-    //                 this.setState({
-    //                     success: true,
-    //                     action: 'Edit',
-    //                     isLoading: false
-    //                 });
-    //             });
-    //     }
-
-    // };
-
     handleDialogOpen = () => {
         this.setState({ openDeleteDialog: true });
     };
@@ -202,9 +145,6 @@ class ProductsTable extends Component {
     handleEditDialogClose = () => {
         this.setState({ openEditDialog: false });
     };
-    // redirectToEdit = () => {
-    //     this.props.history.push(`/welcome-note/${this.state.openActionMenuProduct._id}`);
-    // }
 
     handleDelete = id => {
         this.setState({
@@ -229,7 +169,7 @@ class ProductsTable extends Component {
                     <h2>Products list</h2>
                 </GridItem>
                 <GridItem xs={12} sm={6}>
-                    <Typography className={classes.callToActionHeader}>searchbar</Typography>
+
                 </GridItem>
                 <GridItem xs={12} sm={6}>
                     <Link className={classes.disableUnderline}>

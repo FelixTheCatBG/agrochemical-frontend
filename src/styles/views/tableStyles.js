@@ -54,7 +54,7 @@ const tableStyle = theme => ({
     },
     tableHeaderCell: {
         fontSize: "14px",
-        color: agroBorderColorLight
+        color: "#333"
     },
     tableCellStyle: {
         position: "relative"

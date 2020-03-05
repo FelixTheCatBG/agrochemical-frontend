@@ -9,6 +9,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import diseaseService from "../../services/DiseaseService";
+import productService from "../../services/ProductService";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CurrentDisease from './CurrentDisease';
@@ -74,7 +75,8 @@ export class DiseasesPage extends Component {
         selectedDiseaseId: 0,
         isLoading: true,
         tags: [],
-        currentDisease: ""
+        currentDisease: "",
+        products: []
     }
 
     changeCategory = (filterName) => {
@@ -89,6 +91,13 @@ export class DiseasesPage extends Component {
                 this.setState({
                     diseases: res
                 });
+            });
+        productService.getCategory(1)
+            .then((res) => {
+                console.log(res);
+                this.setState({
+                    products: res.products
+                }, () => console.log(this.state.products, "res"));
             });
     }
 
@@ -119,7 +128,6 @@ export class DiseasesPage extends Component {
                 </div>
                 <GridContainer style={{ minHeight: 600 }}>
                     <GridItem xs={12} sm={3} style={{ borderRight: "1px solid #ccc" }} >
-                        <h3>Categories:</h3>
                         <List style={{ marginTop: 10 }} className={classes.sidenav} component="nav" aria-label="sidenav">
                             <ListItem
                                 className={`${classes.sideBarListItem} ${this.state.filterByCategory === "Garden Pests" ? classes.active : null} ${classes.onHover}`}
@@ -161,7 +169,7 @@ export class DiseasesPage extends Component {
                         <br></br>
                         <Divider />
                         <br></br>
-                        <h3>Search:</h3>
+                        <h5 style={{ marginBottom: "5px" }}>Search:</h5>
                         <Autocomplete
                             options={this.state.diseases}
                             getOptionLabel={option => option.diseaseName}
@@ -171,7 +179,7 @@ export class DiseasesPage extends Component {
                                 <TextField
                                     {...params}
                                     variant="outlined"
-                                    label="Diseases"
+                                    label="Search"
                                     margin="normal"
                                     fullWidth
                                 />
@@ -185,13 +193,13 @@ export class DiseasesPage extends Component {
                                 <div>
                                     <h2>Plant diseases</h2>
                                     <p>Plant disease, an impairment of the normal state of a plant that interrupts or modifies its vital functions. All species of plants, wild and cultivated alike, are subject to disease. Although each species is susceptible to characteristic diseases, these are, in each case, relatively few in number. The occurrence and prevalence of plant diseases vary from season to season, depending on the presence of the pathogen, environmental conditions, and the crops and varieties grown. Some plant varieties are particularly subject to outbreaks of diseases while others are more resistant to them. </p>
-                                    <h2>Signs and symptoms of plant disease: Is it fungal, viral or bacterial?</h2>
+                                    <h4>Signs and symptoms of plant disease: Is it fungal, viral or bacterial?</h4>
                                     <p>Familiarity with the way plant diseases are visually identified can help you diagnose problems.</p>
                                     <p>Most plant diseases – around 85 percent – are caused by fungal or fungal-like organisms. However, other serious diseases of food and feed crops are caused by viral and bacterial organisms. Certain nematodes also cause plant disease. Some plant diseases are classified as “abiotic,” or diseases that are non-infectious and include damage from air pollution, nutritional deficiencies or toxicities, and grow under less than optimal conditions. For now, we’ll look at diseases caused by the three main pathogenic microbes: fungus, bacteria and virus. If plant disease is suspected, careful attention to plant appearance can give a good clue regarding the type of pathogen involved.</p>
                                     <p>A sign of plant disease is physical evidence of the pathogen. For example, fungal fruiting bodies are a sign of disease. When you look at powdery mildew on a lilac leaf, you’re actually looking at the parasitic fungal disease organism itself (Microsphaera alni). Bacterial canker of stone fruits causes gummosis, a bacterial exudate emerging from the cankers. The thick, liquid exudate is primarily composed of bacteria and is a sign of the disease, although the canker itself is composed of plant tissue and is a symptom.</p>
                                 </div>
                             }
-                            {this.state.currentDisease && <CurrentDisease disease={this.state.currentDisease} />}
+                            {this.state.currentDisease && <CurrentDisease products={this.state.products} disease={this.state.currentDisease} />}
                         </GridContainer>
                     </GridItem>
                 </GridContainer>
