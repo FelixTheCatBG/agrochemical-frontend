@@ -21,6 +21,7 @@ const welcomeNotesService = {
             .get(`${baseUrl}/api/product/${productId}`)
             .then(response => {
                 console.log(response.data);
+                console.log(response.data);
 
                 return response.data;
             })
